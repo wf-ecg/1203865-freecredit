@@ -30,7 +30,8 @@
         // - - - - - - - - - - - - - - - - - - - - -
         .desktop &._hero {
             background-image: url(../images/photos/big_girls.jpg);
-            @include span(3, 2);
+            background-color: $_slate;
+            @include span(4, 2);
         }
         &._sept {
             background-image: url(../images/misc/burnish.png), url(../images/misc/quiz.png);
@@ -44,16 +45,6 @@
             .mobile & {
                 height: 12em;
             }
-        }
-        &._cafe {
-            background-image: url(../images/photos/sq_cafe.jpg);
-            @include span();
-        }
-        //  R2 semantic
-        // - - - - - - - - - - - - - - - - - - - - -
-        &._desk {
-            background-image: url(../images/photos/sq_desk.jpg);
-            @include span();
         }
         //  R3 semantic
         // - - - - - - - - - - - - - - - - - - - - -
@@ -71,16 +62,12 @@
             @include span();
         }
         &._redeem {
-            background-image: url(../images/photos/steps.jpg);
             background-color: $_teal;
             background-position: 0% 0%;
             @include span(3);
 
             h2 {
                 text-indent: -0.1em;
-            }
-            .desktop & {
-                padding-left: 13em;
             }
             .mobile & {
                 background-position: 20% 0%;
@@ -92,25 +79,24 @@
         // - - - - - - - - - - - - - - - - - - - - -
         &._tools {
             background-image: url(../images/misc/burnish.png);
-            background-color: $_slate;
+            background-color: $_plum;
             padding-right: 3em;
-            @include span(2);
+            @include span(2.5);
 
             .mobile & {
                 height: 14em;
                 width: 47% !important;
             }
         }
-        .desktop &._advert {
-            background-image: url(../images/photos/campus.jpg);
-            background-color: $_green;
-            background-position: 0% 0%;
-            @include span(2);
+        &._advert {
+            background-image: url(../images/misc/burnish.png);
+            background-color: $_orange;
+            @include span(1.75);
         }
         &._faq {
             background-image: url(../images/misc/burnish.png);
-            background-color: $_red;
-            @include span(2);
+            background-color: $_green;
+            @include span(1.75);
 
             .mobile & {
                 height: 14em;
@@ -120,39 +106,29 @@
         }
         //  R5 semantic
         // - - - - - - - - - - - - - - - - - - - - -
-        &._paying {
+        &._october {
             background-image: url(../images/misc/burnish.png);
-            background-color: $_green;
-            @include span();
-        }
-        &._email {
-            background-image: url(../images/misc/burnish.png);
-            background-color: $_plum;
-            @include span();
+            background-color: $_teal;
+            @include span(2);
         }
         &._phone {
             background-image: url(../images/photos/sq_phone.jpg);
             @include span();
         }
-        &._cover {
-            background-image: url(../images/misc/burnish.png);
-            background-color: $_brown;
-            @include span();
-        }
-        &._october {
-            background-image: url(../images/misc/burnish.png);
-            background-color: $_teal;
-            @include span();
-        }
         &._learn {
             background-image: url(../images/misc/burnish.png);
             background-color: $_purple;
-            @include span();
+            @include span(2);
 
             a.shiny {
                 padding-left: $unit / 1.5;
                 padding-right: $unit / 1.5;
             }
+        }
+        &._email {
+            background-image: url(../images/misc/burnish.png);
+            background-color: $_red;
+            @include span();
         }
     }
 }
