@@ -15,7 +15,7 @@ function Main(W, $) {
 
     Df = { // DEFAULTS
         speed: 333,
-        reveals: ['section._fellows', 'section._credit', 'section._spending'],
+        reveals: ['section._promo', 'section._tools', 'section._faq'],
         iscroll1: null,
         iscroll2: null,
         carousel1: null,
@@ -176,9 +176,9 @@ function Main(W, $) {
         Df.carousel1 = Carousel.attach('.x5.is-port');
         Df.carousel2 = Carousel.attach('.x3.is-port');
 
-        Reveal.attach('_fellows');
-        Reveal.attach('_credit');
-        Reveal.attach('_spending');
+        Reveal.attach('_promo');
+        Reveal.attach('_tools');
+        Reveal.attach('_faq');
     }
 
     function bind() {
@@ -204,7 +204,7 @@ function Main(W, $) {
             showArt('#' + $(this).data('id'));
         });
 
-        $('.show_quiz').on('click touchend', function (evt) {
+        $('.show_sept').on('click touchend', function (evt) {
             evt.preventDefault();
             $('.quiz').trigger('show');
         });

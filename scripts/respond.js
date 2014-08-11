@@ -17,7 +17,7 @@ var Respond = (function (W, $) { //IIFE
 
     function swaps() {
         var p, f, l;
-        p = $('section article._fellows').parent()
+        p = $('section article._promo').parent()
         f = p.children().first();
         l = p.children().last();
         p.prepend(l).append(f);

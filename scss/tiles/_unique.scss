@@ -28,11 +28,11 @@
 
         //  R1 semantic
         // - - - - - - - - - - - - - - - - - - - - -
-        .desktop &._girls {
+        .desktop &._hero {
             background-image: url(../images/photos/big_girls.jpg);
             @include span(3, 2);
         }
-        &._quiz {
+        &._sept {
             background-image: url(../images/misc/burnish.png), url(../images/misc/quiz.png);
             background-position-x: 50%, 100%;
             background-position-y: 100%, 50%;
@@ -57,7 +57,7 @@
         }
         //  R3 semantic
         // - - - - - - - - - - - - - - - - - - - - -
-        &._fellows {
+        &._promo {
             background-image: url(../images/misc/burnish.png);
             background-color: $_poop;
             @include span(2);
@@ -66,11 +66,11 @@
                 padding-right: 3em;
             }
         }
-        &._dude {
-            background-image: url(../images/photos/sq_dude.jpg);
+        &._babe {
+            background-image: url(../images/photos/sq_cafe.jpg);
             @include span();
         }
-        &._steps {
+        &._redeem {
             background-image: url(../images/photos/steps.jpg);
             background-color: $_teal;
             background-position: 0% 0%;
@@ -90,7 +90,7 @@
         }
         //  R4 semantic
         // - - - - - - - - - - - - - - - - - - - - -
-        &._credit {
+        &._tools {
             background-image: url(../images/misc/burnish.png);
             background-color: $_slate;
             padding-right: 3em;
@@ -101,13 +101,13 @@
                 width: 47% !important;
             }
         }
-        .desktop &._campus {
+        .desktop &._advert {
             background-image: url(../images/photos/campus.jpg);
             background-color: $_green;
             background-position: 0% 0%;
             @include span(2);
         }
-        &._spending {
+        &._faq {
             background-image: url(../images/misc/burnish.png);
             background-color: $_red;
             @include span(2);
@@ -125,7 +125,7 @@
             background-color: $_green;
             @include span();
         }
-        &._calc {
+        &._email {
             background-image: url(../images/misc/burnish.png);
             background-color: $_plum;
             @include span();
@@ -139,12 +139,12 @@
             background-color: $_brown;
             @include span();
         }
-        &._manage {
+        &._october {
             background-image: url(../images/misc/burnish.png);
             background-color: $_teal;
             @include span();
         }
-        &._talk {
+        &._learn {
             background-image: url(../images/misc/burnish.png);
             background-color: $_purple;
             @include span();
