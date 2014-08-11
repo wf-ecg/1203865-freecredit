@@ -23,7 +23,7 @@ var Stats = (function (W, $) { //IIFE
     }
 
     function send(msg) {
-        W.ga('send', 'event', 'GCR', msg, {
+        W.ga('send', 'event', 'FCS', msg, {
             'nonInteraction': true
         });
     }
