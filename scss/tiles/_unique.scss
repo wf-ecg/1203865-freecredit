@@ -61,6 +61,7 @@
             @include span();
         }
         &._redeem {
+            background-image: url(../images/misc/burnish.png);
             background-color: $_teal;
             background-position: 0% 0%;
             @include span(3);
