@@ -12,7 +12,7 @@ var Reveal = (function ($, G, U) { // IIFE
         all: [],
         speed: null,
         current: null,
-        revealpx: 268,
+        revealpx: 257,
         reveals: 'section.reveal',
         inits: function (ms) {
             $.reify(El);
