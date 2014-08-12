@@ -88,7 +88,7 @@ Glob = new Global('Glob');
         ],
         complete: function () {
             ROOT.loaded($);
-            W.Main && W.Main(W, $).init();
+            W.Main && W.Main.init();
         },
     };
 

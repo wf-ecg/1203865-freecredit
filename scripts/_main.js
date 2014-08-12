@@ -1,17 +1,12 @@
 /*jslint es5:true, white:false */
-/*globals _, Control, Decache, Global, Include,
-          IScroll, Modal, Respond, Reveal, Util, Stats,
-          jQuery, window */
+/*globals _, C, W, Glob, Util, jQuery,
+          Control, Decache, Include, IScroll, Modal, Respond, Reveal, Stats, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-function Main(W, $) {
+var Main = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Main',
-    self = new Global(name, '(kicker and binder)'),
-    C, Df, El, U;
-
-    C = W.console;
-    U = Util;
+        self = new G.constructor(name, '(kicker and binder)'),
+        Df, El;
 
     Df = { // DEFAULTS
         speed: 333,
@@ -40,6 +35,7 @@ function Main(W, $) {
     };
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // HELPERS (defaults dependancy only)
 
     function pubsubs() {
         $.PS_sub('change', function () {
@@ -66,6 +62,9 @@ function Main(W, $) {
         this.refresh();
         this.scrollTo(0, 0);
     }
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /// INTERNAL
 
     function linkVid(evt) {
         var me, stub;
@@ -229,8 +228,9 @@ function Main(W, $) {
         init: _init,
         mode: eval(U.testrict),
     });
+
     return self;
-}
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
