@@ -4,33 +4,41 @@
 'use strict';
 var Data, Glob;
 
-(function (W, $, M) {
-    W.debug = 1;
+Glob = new Global('Glob');
 
-    if (W.isIE) {
-        $(function () {
-            $('html').addClass('msie');
-        });
-    }
-    if (($.now() > new Date('2014/04/09')) || W.isIE || //
-        W.location.hostname == 'www.wellsfargomedia.com') {
-        W.debug--;
-    }
-    if ($('html').is('.debug')) {
-        W.debug++;
-    }
-    if (W.location.hostname === 'localhost') {
-        W.debug++ > 1 && $('html').addClass('debug');
-    }
+(function ($, M, G) {
+    'use strict';
+    var U;
+    W.G = G;
+    W.Load = {};
 
-    var G = { /// all stubs terminated
+    _.defaults(G, { /// all stubs terminated
+        top: ROOT.dir + '/',
         dir: ROOT.dir + '/',
         lib: ROOT.lib + '/',
         loc: ROOT.dir + '/lib/',
         src: ROOT.dir + '/scripts/',
-    };
+    });
 
-    M.load([{
+    if ($.browser.msie) {
+        $(function () {
+            $('html').addClass('msie');
+            $('body').on('mouseover', '.region, .widget, a, li', function () {
+                $(this).addClass('hover');
+            }).on('mouseout', '.region, .widget, a, li', function () {
+                $(this).removeClass('hover');
+            });
+        });
+        W.debug--;
+    }
+    if (ROOT.conf.nom === 'wfmedia') {
+        W.debug--;
+    }
+    if (ROOT.conf.nom === 'localhost') {
+        W.debug++;
+    }
+
+    Load.base = {
         test: W.isIE,
         yep: [
         G.lib + 'ie/split.js',
@@ -41,21 +49,21 @@ var Data, Glob;
         ],
         both: [
         G.lib + 'jq/jq-pubsub.js',
-        G.lib + 'underscore/js-1.4.4/lodash.underscore.js',
         G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',
         G.lib + 'jquery/mobile/custom/jquery.mobile.min.js',
         /* */
         G.loc + 'jq-help.js',
         G.loc + 'js-view.js',
         G.loc + 'mzr-highres.js',
+        G.loc + '_util.js',
         ],
         complete: function () {
-            ROOT.log();
-            G = $.extend(true, Global, G);
-            Data = new Global('Data', '(catchall data fixture)');
+            U = Util;
         },
-    },{
-        test: (ROOT.host === 'localhost:8000'),
+    };
+
+    Load.font = {
+        test: ROOT.conf.nom === 'localhost' || ROOT.conf.nom === 'qla1',
         yep: [
         G.lib + 'fonts/archer.ssm.css',
         G.lib + 'fonts/archer.ssm.itl.css',
@@ -64,8 +72,10 @@ var Data, Glob;
         /* '//cloud.typography.com/6819872/620964/css/fonts.css', Normal */
         '//cloud.typography.com/6819872/633184/css/fonts.css', /* ScrnSmrt */
         ],
+    };
+
+    Load.main = {
         both: [
-        G.src + '_util.js',
         G.src + 'carousel.js',
         G.src + 'control.js',
         G.src + 'decache.js',
@@ -74,18 +84,22 @@ var Data, Glob;
         G.src + 'respond.js',
         G.src + 'reveal.js',
         //G.src + 'stats.js',
-        G.src + 'main.js',
+        G.src + '_main.js',
         ],
         complete: function () {
+            ROOT.loaded($);
             W.Main && W.Main(W, $).init();
         },
-    },{
-        test: (W.debug < 1),
-//        yep: ['http://www.wellsfargomedia.com/lib/js/ecg-ga.js'],
-        yep: ['lib/ecg-ga.js'],
-    }]);
+    };
 
-    Glob = G;
-}(window, jQuery, Modernizr));
+    Load.test = {
+        test: W.debug >= 0,
+        yep: [],
+        nope: [
+        'http://www.wellsfargomedia.com/lib/js/ecg-ga.js',
+        ],
+    };
+    M.load([Load.base, Load.font, Load.main, Load.test]);
 
+}(jQuery, Modernizr, Glob));
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
