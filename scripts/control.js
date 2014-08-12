@@ -1,14 +1,12 @@
 /*jslint es5:true, white:false */
-/*globals Global, Util, jQuery, window */
+/*globals _, C, W, Glob, Util, jQuery,
+        Control:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Control = (function (W, $) { //IIFE
+var Control = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Control',
-        self = new Global(name, '(control operations)'),
-        C, Df, El, U;
-
-    C = W.console;
-    U = Util;
+        self = new G.constructor(name, '(control operations)'),
+        Df, El;
 
     Df = { // DEFAULTS
         all: [],
@@ -24,7 +22,7 @@ var Control = (function (W, $) { //IIFE
         all: '.control',
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    /// INTERNAL
+    // HELPERS (defaults dependancy only)
 
     function _soonScrollTo(ele) {
         ele = $(ele);
@@ -39,6 +37,8 @@ var Control = (function (W, $) { //IIFE
     function _isActive(ele) {
         return $(ele).is('.active');
     }
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /// INTERNAL
 
     function scroller(dat) {
         if (dat.status === 'active') {
@@ -150,7 +150,7 @@ var Control = (function (W, $) { //IIFE
     });
 
     return self;
-}(window, jQuery));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*

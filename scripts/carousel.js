@@ -1,14 +1,12 @@
 /*jslint es5:true, white:false */
-/*globals Global, IScroll, Util, jsView, jQuery, window */
+/*globals _, C, W, Glob, Util, jQuery,
+        Carousel:true, IScroll, jsView, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Carousel = (function (W, $) { //IIFE
+var Carousel = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Carousel',
-    self = new Global(name, '(rotation scroller)'),
-    C, Df, El, U;
-
-    C = W.console;
-    U = Util;
+        self = new G.constructor(name, '(rotation scroller)'),
+        Df, El;
 
     Df = { // DEFAULTS
         all: [],
@@ -24,14 +22,16 @@ var Carousel = (function (W, $) { //IIFE
         reveals: 'section.reveal', // unused
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    /// INTERNAL
-    /// attach expand/contract/status events to items with _reveal
+    // HELPERS (defaults dependancy only)
 
     function _gotoNext(me) {
         var ln = me.pages.length - (jsView.mobile.agent() ? 0 : 1);
         var pg = (1 + me.currentPage.pageX) % ln;
         me.goToPage(pg, 0);
     }
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /// INTERNAL
 
     function _setAuto(me) {
         var tm, indi;
@@ -121,7 +121,7 @@ var Carousel = (function (W, $) { //IIFE
     });
 
     return self;
-}(window, jQuery));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*

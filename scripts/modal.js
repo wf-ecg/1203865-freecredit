@@ -1,14 +1,12 @@
 /*jslint es5:true, white:false */
-/*globals Global, Main, Util, jQuery, window, _ */
+/*globals _, C, W, Glob, Util, jQuery,
+        Modal:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Modal = (function (W, $) { //IIFE
+var Modal = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Modal',
-        self = new Global(name, '(enable modal selections)'),
-        C, Df, El, U;
-
-    C = W.console;
-    U = Util;
+        self = new G.constructor(name, '(enable modal selections)'),
+        Df, El;
 
     Df = { // DEFAULTS
         dat: {},
@@ -20,11 +18,12 @@ var Modal = (function (W, $) { //IIFE
             El.message.prependTo(El.div);
         },
     };
-
     El = {
         div: '#Modal',
         message: '<aside class="modal closeMessage"></aside>',
     };
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // HELPERS (defaults dependancy only)
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
@@ -80,7 +79,7 @@ var Modal = (function (W, $) { //IIFE
     });
 
     return self;
-}(window, jQuery));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*

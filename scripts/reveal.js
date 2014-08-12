@@ -1,14 +1,12 @@
 /*jslint es5:true, white:false */
-/*globals Global, Util, jQuery, window */
+/*globals _, C, W, Glob, Util, jQuery,
+        Reveal:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Reveal = (function (W, $) { //IIFE
+var Reveal = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Reveal',
-    self = new Global(name, '(expand or contract)'),
-    C, Df, El, U;
-
-    C = W.console;
-    U = Util;
+        self = new G.constructor(name, '(expand or contract)'),
+        Df, El;
 
     Df = { // DEFAULTS
         all: [],
@@ -27,8 +25,11 @@ var Reveal = (function (W, $) { //IIFE
         reveals: 'section.reveal',
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // HELPERS (defaults dependancy only)
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
-    /// attach expand/contract/status events to items with _reveal
+    // attach expand/contract/status events to items with _reveal
 
     function mobile() {
         return El.body.is('.mobile');
@@ -166,7 +167,7 @@ var Reveal = (function (W, $) { //IIFE
     });
 
     return self;
-}(window, jQuery));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*
