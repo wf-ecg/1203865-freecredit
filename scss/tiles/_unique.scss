@@ -29,7 +29,7 @@
         //  R1 semantic
         // - - - - - - - - - - - - - - - - - - - - -
         .desktop &._hero {
-            background-image: url(../images/photos/big_girls.jpg);
+            background-image: url(../images/photos/hero.jpg);
             background-color: $_slate;
             @include span(4, 2);
         }
@@ -57,7 +57,7 @@
             }
         }
         &._babe {
-            background-image: url(../images/photos/sq_cafe.jpg);
+            background-image: url(../images/photos/sq_babe.jpg);
             @include span();
         }
         &._redeem {
