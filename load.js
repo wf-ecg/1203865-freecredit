@@ -71,10 +71,9 @@ var Data, Glob;
         G.src + 'decache.js',
         G.src + 'include.js',
         G.src + 'modal.js',
-        G.src + 'quiz.js',
         G.src + 'respond.js',
         G.src + 'reveal.js',
-        G.src + 'stats.js',
+        //G.src + 'stats.js',
         G.src + 'main.js',
         ],
         complete: function () {

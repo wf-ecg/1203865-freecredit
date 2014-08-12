@@ -1,6 +1,6 @@
 /*jslint es5:true, white:false */
 /*globals _, Control, Decache, Global, Include,
-          IScroll, Modal, Quiz, Respond, Reveal, Util, Stats,
+          IScroll, Modal, Respond, Reveal, Util, Stats,
           jQuery, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -65,27 +65,6 @@ function Main(W, $) {
     function isfreshen() {
         this.refresh();
         this.scrollTo(0, 0);
-    }
-
-    function reader() {
-        Df.iscroll1 = new IScroll(El.read_scroll.get(0), Df.isbars);
-
-        // store on wrapper
-        El.read_scroll.data('iscroll', Df.iscroll1);
-        El.read_scroll.on('refresh', function () {
-            isfreshen.apply(Df.iscroll1);
-        });
-    }
-
-    function quizzer() {
-        W.iss = Df.iscroll2 = new IScroll(El.quiz_scroll.get(0), Df.isbars);
-
-        // store on wrapper
-        El.quiz_scroll.data('iscroll', Df.iscroll2);
-        El.quiz_scroll.on('refresh', function () {
-            isfreshen.apply(Df.iscroll2);
-        });
-        Quiz.init();
     }
 
     function linkVid(evt) {
@@ -196,7 +175,7 @@ function Main(W, $) {
         Modal.init(Df.speed);
         Reveal.init(Df.speed);
         Respond.init();
-        Stats.init();
+        //Stats.init();
 
         $('.show_article').on('click touchend', function (evt) {
             evt.preventDefault();
@@ -233,8 +212,6 @@ function Main(W, $) {
         self.serv = W.location.hostname;
         C.info('Main init @ ' + Date() + ' debug:', W.debug, self.mode);
 
-        reader();
-        quizzer();
         expander();
 
         Include.init();
