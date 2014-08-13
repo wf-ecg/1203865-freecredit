@@ -21,7 +21,6 @@
 
         .mobile &:not(.square) {
             width: $lillwidth - 20;
-            br { display: none; }
         }
         .mobile &.square {
             max-width: $unit * 14.5;
@@ -48,6 +47,7 @@
             @include span(2, 2);
 
             .mobile & {
+                br { display: none; }
                 height: 12em;
             }
         }
@@ -77,8 +77,8 @@
             }
             .mobile & {
                 background-position: 20% 0%;
-                padding-left: 12em;
-                padding-right: 1em;
+                padding-left: 1em;
+                padding-right: 5em;
             }
         }
         //  R4 semantic
