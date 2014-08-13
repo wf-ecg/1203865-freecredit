@@ -1,20 +1,18 @@
 /*jslint es5:true, white:false */
-/*globals Global, Util, jQuery, window */
+/*globals _, C, W, Glob, Util, jQuery,
+        Reveal:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Reveal = (function (W, $) { //IIFE
+var Reveal = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Reveal',
-    self = new Global(name, '(expand or contract)'),
-    C, Df, El, U;
-
-    C = W.console;
-    U = Util;
+        self = new G.constructor(name, '(expand or contract)'),
+        Df, El;
 
     Df = { // DEFAULTS
         all: [],
         speed: null,
         current: null,
-        revealpx: 268,
+        revealpx: 257,
         reveals: 'section.reveal',
         inits: function (ms) {
             $.reify(El);
@@ -27,37 +25,40 @@ var Reveal = (function (W, $) { //IIFE
         reveals: 'section.reveal',
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // HELPERS (defaults dependancy only)
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
-    /// attach expand/contract/status events to items with _reveal
+    // attach expand/contract/status events to items with _reveal
 
     function mobile() {
         return El.body.is('.mobile');
     }
 
-    function scroller(dat) {
-        if (!dat.carousel) {
+    function scroller(obj) {
+        if (!obj.carousel) {
             return;
-        } else if (dat.status === 'active') {
-            dat.carousel.tm = Carousel.auto(dat.carousel);
+        } else if (obj.status === 'active') {
+            obj.carousel.tm = Carousel.auto(obj.carousel);
         } else {
-            W.clearInterval(dat.carousel.tm);
+            W.clearInterval(obj.carousel.tm);
         }
     }
 
-    function fader(dat) {
+    function fader(obj) {
         var div, mob;
 
-        div = dat.wrap;
+        div = obj.wrap;
         mob = Respond.mobile();
 
-        if (dat.status === 'active') {
+        if (obj.status === 'active') {
             div.addClass('animate').show().css({
                 display: 'block',
                 height: Df.revealpx * (mob ? 1.2 : 1),
             });
             div.children().fadeIn(Df.speed * 2, function () {
                 div.removeClass('animate');
-                dat.carousel && dat.carousel.refresh();
+                obj.carousel && obj.carousel.refresh();
             });
         } else {
             div.addClass('animate').css({
@@ -70,64 +71,64 @@ var Reveal = (function (W, $) { //IIFE
         }
     }
 
-    function datify(me) {
-        var cbs, dat, wrap, wrapped;
+    function datify(sect) {
+        var cbs, obj, wrap, wrapped;
 
         cbs = $.Callbacks();
 
-        wrap = me.parent().parent();
+        wrap = sect.parent().closest('.reveal');
         wrapped = wrap.data('carousel') || false;
-        wrap = wrapped ? wrap : me;
+        wrap = wrapped ? wrap : sect;
 
-        dat = {
+        obj = {
             wrap: wrap,
             carousel: wrapped,
             status: 'active',
-            actuate: function (fn) {
+            todo: function (fn) {
                 if (fn) {
                     cbs.add(fn);
                 } else {
                     if (Df.current) {
                         Df.current.deactivate();
                     }
-                    cbs.fire(dat);
+                    cbs.fire(obj);
                 }
             },
             reset: function (stat) {
-                dat.wrap.removeClass(dat.status);
+                obj.wrap.removeClass(obj.status);
                 if (stat) {
-                    dat.status = stat;
-                    dat.wrap.addClass(dat.status);
+                    obj.status = stat;
+                    obj.wrap.addClass(obj.status);
                 }
             },
             activate: function () {
-                if (dat.status !== 'active') {
-                    dat.reset('active');
-                    dat.actuate();
-                    Df.current = dat;
+                if (obj.status !== 'active') {
+                    obj.reset('active');
+                    obj.todo();
+                    Df.current = obj;
                     return true;
                 }
                 return false;
             },
             deactivate: function () {
-                if (dat.status !== 'normal') {
-                    dat.reset('normal');
+                if (obj.status !== 'normal') {
+                    obj.reset('normal');
                     Df.current = null;
-                    dat.actuate();
+                    obj.todo();
                     return true;
                 }
                 return false;
             },
         };
 
-        Df.all.push(dat);
-        me.data(name, dat);
 
-        dat.actuate(fader);
-        dat.actuate(scroller);
-        dat.deactivate();
+        obj.todo(fader);
+        obj.todo(scroller);
+        obj.deactivate();
 
-        return dat;
+        Df.all.push(obj);
+        sect.data(name, obj);
+        return obj;
     }
 
     function _setHandle(sel) {
@@ -137,7 +138,7 @@ var Reveal = (function (W, $) { //IIFE
         btn = $('article.' + sel + ' .control');
         dat = datify(sect.first());
 
-        btn.click(function () {
+        btn.on('click', function () { /// xyz 1
             if ($(this).is('.active')) {
                 dat.deactivate();
             } else {
@@ -166,7 +167,7 @@ var Reveal = (function (W, $) { //IIFE
     });
 
     return self;
-}(window, jQuery));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*

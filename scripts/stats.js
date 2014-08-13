@@ -1,17 +1,18 @@
 /*jslint es5:true, white:false */
-/*globals Global, _, jQuery, window */
+/*globals _, C, W, Glob, Util, jQuery,
+        Stats:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Stats = (function (W, $) { //IIFE
+var Stats = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Stats',
-    self = new Global(name, '(update Google Analytics)'),
-    C, Df;
-
-    C = W.console;
+        self = new G.constructor(name, '(update Google Analytics)'),
+        Df;
 
     Df = { // DEFAULTS
         lastAction: null,
     };
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // HELPERS (defaults dependancy only)
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
@@ -23,7 +24,7 @@ var Stats = (function (W, $) { //IIFE
     }
 
     function send(msg) {
-        W.ga('send', 'event', 'GCR', msg, {
+        W.ga('send', 'event', 'FCS', msg, {
             'nonInteraction': true
         });
     }
@@ -100,7 +101,7 @@ var Stats = (function (W, $) { //IIFE
     });
 
     return self.init();
-}(window, jQuery));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*

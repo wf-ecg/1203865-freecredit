@@ -1,14 +1,12 @@
 /*jslint es5:true, white:false */
-/*globals Global, Util, jQuery, window */
+/*globals _, C, W, Glob, Util, jQuery,
+        Control:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Control = (function (W, $) { //IIFE
+var Control = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Control',
-        self = new Global(name, '(control operations)'),
-        C, Df, El, U;
-
-    C = W.console;
-    U = Util;
+        self = new G.constructor(name, '(control operations)'),
+        Df, El;
 
     Df = { // DEFAULTS
         all: [],
@@ -24,7 +22,7 @@ var Control = (function (W, $) { //IIFE
         all: '.control',
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    /// INTERNAL
+    // HELPERS (defaults dependancy only)
 
     function _soonScrollTo(ele) {
         ele = $(ele);
@@ -36,90 +34,91 @@ var Control = (function (W, $) { //IIFE
         }, Df.speed * 2);
     }
 
-    function _isActive(ele) {
-        return $(ele).is('.active');
-    }
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /// INTERNAL
 
-    function scroller(dat) {
-        if (dat.status === 'active') {
-            _soonScrollTo(dat.jq);
+    function scroller(obj) {
+        if (obj.status === 'active') {
+            _soonScrollTo(obj.btn);
         } else {
             _soonScrollTo('#Top');
         }
     }
 
-    function titler(dat) {
-        if (dat.status === 'active') {
-            dat.jq.attr('title', 'Close section');
+    function titler(obj) {
+        if (obj.status === 'active') {
+            obj.btn.attr('title', 'Close section');
         } else {
-            dat.jq.attr('title', 'Reveal more');
+            obj.btn.attr('title', 'Reveal more');
         }
     }
 
     function datify() {
-        var me, cbs, dat;
-        // debugger
-        me = $(this);
+        var btn, cbs, obj;
+
+        btn = $(this);
         cbs = $.Callbacks();
-        dat = {
-            jq: me,
+
+        obj = {
+            btn: btn,
             status: 'normal',
-            actuate: function (fn) {
+            todo: function (fn) {
                 if (fn) {
                     cbs.add(fn);
                 } else {
                     if (Df.current) {
                         Df.current.deactivate();
                     }
-                    cbs.fire(this);
+                    cbs.fire(obj);
                 }
             },
             reset: function (stat) {
-                this.jq.removeClass(this.status);
+                obj.btn.removeClass(obj.status);
                 if (stat) {
-                    this.status = stat;
-                    this.jq.addClass(this.status);
+                    obj.status = stat;
+                    obj.btn.addClass(obj.status);
                 }
             },
             activate: function () {
-                if (this.status === 'normal') {
-                    this.reset('active');
-                    this.actuate();
-                    Df.current = this;
+                if (obj.status === 'normal') {
+                    obj.reset('active');
+                    obj.todo();
+                    Df.current = obj;
                     return true;
                 }
                 return false;
             },
             deactivate: function () {
-                if (this.status === 'active') {
-                    this.reset('normal');
+                if (obj.status === 'active') {
+                    obj.reset('normal');
                     Df.current = null;
-                    this.actuate();
+                    obj.todo();
                     return true;
                 }
                 return false;
             },
         };
 
-        Df.all.push(dat);
-        dat.actuate(scroller);
-        dat.actuate(titler);
+        obj.todo(scroller);
+        obj.todo(titler);
 
-        me.data(name, dat);
+        Df.all.push(obj);
+        btn.data(name, obj);
+        return obj;
     }
 
     function bind() {
         El.all //
-        .each(datify) //
+        .each(datify) // decorate each control
         .on('click', function (evt) {
             evt.preventDefault();
 
-            var dat = $(this).data(name);
+            var obj = $(this).data(name);
 
-            if (_isActive(dat.jq)) {
-                dat.deactivate();
+            if (obj.btn.is('.active')) {
+                obj.deactivate();
             } else {
-                dat.activate();
+                obj.activate();
             }
         });
         self.reset();
@@ -150,7 +149,7 @@ var Control = (function (W, $) { //IIFE
     });
 
     return self;
-}(window, jQuery));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*

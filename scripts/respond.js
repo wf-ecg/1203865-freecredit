@@ -1,28 +1,27 @@
 /*jslint es5:true, white:false */
-/*globals Global, Modernizr, Util, jQuery, jsView, window */
+/*globals _, C, W, Glob, Util, jQuery,
+        Respond:true, Respond, jsView, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Respond = (function (W, $) { //IIFE
+var Respond = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Respond',
-        self = new Global(name, '(detect and insert verbiage)'),
-        C, Df, U;
-
-    C = W.console;
-    U = Util;
+        self = new G.constructor(name, '(detect and insert verbiage)'),
+        Df;
 
     Df = { // DEFAULTS
         dat: {},
         current: '',
     };
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // HELPERS (defaults dependancy only)
 
     function swaps() {
         var p, f, l;
-        p = $('section article._fellows').parent()
+        p = $('section article._promo').parent()
         f = p.children().first();
         l = p.children().last();
         p.prepend(l).append(f);
     }
-
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
@@ -124,7 +123,7 @@ var Respond = (function (W, $) { //IIFE
     });
 
     return self;
-}(window, jQuery));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*

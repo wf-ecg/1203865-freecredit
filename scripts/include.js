@@ -1,15 +1,12 @@
 /*jslint es5:true, white:false */
-/*globals Global, Util, _, jQuery, window */
+/*globals _, C, W, Glob, Util, jQuery,
+        Include:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Include = (function (W, $) { // IIFE
+var Include = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Include',
-        self = new Global(name, '(access and attach selected regions)'),
-        C, Df, G, U, cached;
-
-    G = Global;
-    U = Util;
-    C = W.console;
+        self = new G.constructor(name, '(access and attach selected regions)'),
+        Df, cached;
 
     cached = $();
 
@@ -24,7 +21,7 @@ var Include = (function (W, $) { // IIFE
         },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    /// INTERNAL
+    // HELPERS (defaults dependancy only)
 
     function _later(fn) {
         if (fn) {
@@ -32,6 +29,8 @@ var Include = (function (W, $) { // IIFE
         }
     }
 
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /// INTERNAL
     function _copyCache(sel) {
         return cached.filter(sel).clone();
     }
@@ -100,10 +99,9 @@ var Include = (function (W, $) { // IIFE
     });
 
     return self;
-}(window, jQuery));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
 /*
 
 

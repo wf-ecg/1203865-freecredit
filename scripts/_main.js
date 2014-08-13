@@ -1,56 +1,31 @@
 /*jslint es5:true, white:false */
-/*globals _, Control, Decache, Global, Include,
-          IScroll, Modal, Quiz, Respond, Reveal, Util, Stats,
-          jQuery, window */
+/*globals _, C, W, Glob, Util, jQuery,
+          Control, Decache, Include, Modal, Respond, Reveal, Stats, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-function Main(W, $) {
+var Main = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Main',
-    self = new Global(name, '(kicker and binder)'),
-    C, Df, El, U;
-
-    C = W.console;
-    U = Util;
+        self = new G.constructor(name, '(kicker and binder)'),
+        Df, El;
 
     Df = { // DEFAULTS
         speed: 333,
-        reveals: ['section._fellows', 'section._credit', 'section._spending'],
-        iscroll1: null,
-        iscroll2: null,
-        carousel1: null,
-        carousel2: null,
-        isbars: {
-            defaultScrollbars: W.isIE,
-            interactiveScrollbars: !W.isIE,
-            mouseWheel: 1,
-            scrollbars: 'custom',
-            scrollX: 0,
-            scrollY: 1,
-        },
+        reveals: ['section._promo', 'section._tools', 'section._advert'],
         inits: function () {
             $.reify(El);
             Df.inited = true;
         },
     };
     El = { // ELEMENTS
-        read_scroll: '.articles.is-port',
-        quiz_scroll: '.answers.is-port',
         body: $('body'),
     };
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // HELPERS (defaults dependancy only)
 
     function pubsubs() {
         $.PS_sub('change', function () {
             Control.reset();
-        });
-
-        $.PS_sub('refresh.iScroll', function () {
-            Df.iscroll1 && Df.iscroll1.refresh();
-            Df.iscroll2 && Df.iscroll2.refresh();
-            Df.carousel1 && Df.carousel1.refresh();
-            Df.carousel2 && Df.carousel2.refresh();
         });
 
         $(W).bind('resize orientationchange', _.throttle(function () {
@@ -67,26 +42,8 @@ function Main(W, $) {
         this.scrollTo(0, 0);
     }
 
-    function reader() {
-        Df.iscroll1 = new IScroll(El.read_scroll.get(0), Df.isbars);
-
-        // store on wrapper
-        El.read_scroll.data('iscroll', Df.iscroll1);
-        El.read_scroll.on('refresh', function () {
-            isfreshen.apply(Df.iscroll1);
-        });
-    }
-
-    function quizzer() {
-        W.iss = Df.iscroll2 = new IScroll(El.quiz_scroll.get(0), Df.isbars);
-
-        // store on wrapper
-        El.quiz_scroll.data('iscroll', Df.iscroll2);
-        El.quiz_scroll.on('refresh', function () {
-            isfreshen.apply(Df.iscroll2);
-        });
-        Quiz.init();
-    }
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /// INTERNAL
 
     function linkVid(evt) {
         var me, stub;
@@ -146,21 +103,6 @@ function Main(W, $) {
         return wrap;
     }
 
-    function showArt(id) {
-        El.read_scroll.show().find('article').hide();
-        El.read_scroll.find(id).show();
-    }
-
-    function loaded() {
-        El.body.addClass('loaded');
-        _.delay(function () {
-            El.body.removeClass('loading')
-        }, 999);
-        _.delay(function () {
-            El.body.removeClass('loaded');
-        }, 9999);
-    }
-
     function watchInputDevice() {
         var htm = $('html');
         htm.on('keydown', function (evt) { // key action
@@ -173,12 +115,9 @@ function Main(W, $) {
     }
 
     function expander() {
-        Df.carousel1 = Carousel.attach('.x5.is-port');
-        Df.carousel2 = Carousel.attach('.x3.is-port');
-
-        Reveal.attach('_fellows');
-        Reveal.attach('_credit');
-        Reveal.attach('_spending');
+        Reveal.attach('_promo');
+        Reveal.attach('_tools');
+        Reveal.attach('_advert');
     }
 
     function bind() {
@@ -191,23 +130,11 @@ function Main(W, $) {
             me.attr('title', me.attr('href').replace(/(\S*?\/\/\S+?)\/.*/, '$1'));
         });
 
-        Carousel.init(Df.speed);
         Control.init(Df.speed);
         Modal.init(Df.speed);
         Reveal.init(Df.speed);
         Respond.init();
-        Stats.init();
-
-        $('.show_article').on('click touchend', function (evt) {
-            evt.preventDefault();
-            Modal.show();
-            showArt('#' + $(this).data('id'));
-        });
-
-        $('.show_quiz').on('click touchend', function (evt) {
-            evt.preventDefault();
-            $('.quiz').trigger('show');
-        });
+        //Stats.init();
 
         $('.video > a').on('click touchend', function (evt) {
             return jsView.mobile.agent() ? linkVid(evt) : embedVid(evt); // linkVid is used since mobile.agent returns for ipads
@@ -233,14 +160,11 @@ function Main(W, $) {
         self.serv = W.location.hostname;
         C.info('Main init @ ' + Date() + ' debug:', W.debug, self.mode);
 
-        reader();
-        quizzer();
         expander();
 
         Include.init();
         $('#Top').scrollTo();
         Include.later(bind);
-        loaded();
     }
 
     $.extend(self, {
@@ -252,8 +176,9 @@ function Main(W, $) {
         init: _init,
         mode: eval(U.testrict),
     });
+
     return self;
-}
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 

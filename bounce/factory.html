@@ -37,8 +37,8 @@
         return o;
     }
 
-    function gcr(str) {
-        return str.replace(/getcollegeready/i,'gcr'); // force gcr
+    function fcs(str) {
+        return str.replace(/freecreditscore/i,'fcs'); // force fcs
     }
 
     // if ending has no dot to indicate a doc, replace end with /index.html
@@ -53,11 +53,11 @@
         C.debug(loc.end === end, msg || end);
     }
 
-    tester('/wf-ecg/1170361-getcollege/bounce/', "index.html");
-    tester('/wf-ecg/1170361-getcollege/bounce', "bounce/index.html");
-    tester('/wf-ecg/1170361-getcollege/bounce/foo', "foo/index.html");
-    tester('/wf-ecg/1170361-getcollege/bounce/index.html', "index.html");
-    tester('/wf-ecg/1170361-getcollege/bounce/index.html', "built to fail");
+    tester('/wf-ecg/1203865-freecredit/bounce/', "index.html");
+    tester('/wf-ecg/1203865-freecredit/bounce', "bounce/index.html");
+    tester('/wf-ecg/1203865-freecredit/bounce/foo', "foo/index.html");
+    tester('/wf-ecg/1203865-freecredit/bounce/index.html', "index.html");
+    tester('/wf-ecg/1203865-freecredit/bounce/index.html', "built to fail");
 
     bouncer(L.pathname).go();
     shortcut(L.pathname);
