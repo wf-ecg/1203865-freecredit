@@ -2,11 +2,12 @@
 /* TILES / Unique */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Tiles {
-    $_orange: $a_d_orange;
+    $_orange: #ed8800;
     $_red:    $a_d_red;
-    $_green:  $a_d_green;
+    $_green:  #4e801f;
     $_purple: $a_d_plum;
     $_teal:   $a_d_teal;
+    $_azure:  #5098aa;
     $_poop:   $a_ebony;
     $_brown:  $a_d_ebony;
     $_plum:   $a_d_magenta;
@@ -34,10 +35,16 @@
             @include span(4, 2);
         }
         &._sept {
-            background-image: url(../images/misc/burnish.png), url(../images/misc/quiz.png);
+            background-image: url(../images/misc/burnish.png), url(../images/misc/hourglass.png);
             background-position-x: 50%, 100%;
-            background-position-y: 100%, 50%;
+            background-position-y: 100%, 10%;
             background-repeat: repeat-x, no-repeat;
+            .msie & {
+                background-image: url(../images/misc/hourglass.png);
+                background-position-x: 100%;
+                background-position-y: 10%;
+                background-repeat: no-repeat;
+            }
             background-color: $_purple;
             @include span(2, 2);
 
@@ -63,7 +70,7 @@
         &._redeem {
             background-image: url(../images/misc/burnish.png);
             background-color: $_teal;
-            background-position: 0% 0%;
+            background-repeat: repeat-x;
             @include span(3);
 
             h2 {
@@ -78,7 +85,16 @@
         //  R4 semantic
         // - - - - - - - - - - - - - - - - - - - - -
         &._tools {
-            background-image: url(../images/misc/burnish.png);
+            background-image: url(../images/misc/burnish.png), url(../images/misc/gears.png);
+            background-position-x: 50%, 110%;
+            background-position-y: 100%, 50%;
+            background-repeat: repeat-x, no-repeat;
+            .msie & {
+                background-image: url(../images/misc/gears.png);
+                background-position-x: 110%;
+                background-position-y: 50%;
+                background-repeat: no-repeat;
+            }
             background-color: $_plum;
             padding-right: 3em;
             @include span(2.5);
@@ -94,8 +110,17 @@
             @include span(1.75);
         }
         &._faq {
-            background-image: url(../images/misc/burnish.png);
             background-color: $_green;
+            background-image: url(../images/misc/burnish.png), url(../images/misc/question.png);
+            background-position-x: 50%, 120%;
+            background-position-y: 100%, 50%;
+            background-repeat: repeat-x, no-repeat;
+            .msie & {
+                background-image: url(../images/misc/question.png);
+                background-position-x: 120%;
+                background-position-y: 50%;
+                background-repeat: no-repeat;
+            }
             @include span(1.75);
 
             .mobile & {
@@ -108,7 +133,7 @@
         // - - - - - - - - - - - - - - - - - - - - -
         &._october {
             background-image: url(../images/misc/burnish.png);
-            background-color: $_teal;
+            background-color: $_azure;
             @include span(2);
         }
         &._phone {
