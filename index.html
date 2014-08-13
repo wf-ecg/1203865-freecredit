@@ -12,7 +12,7 @@
         <title>Free Credit Score</title>
         <meta content="Originally built by WF-ECG INTERACTIVE (Wells Fargo Enterprise Creative Group).
               We design and develop with a focus on web standards and best practices." name="author">
-        <meta content="Yada Yada Yada." name="description">
+        <meta content="Complete the team member training prior to Sept 30." name="description">
         <meta name="viewport" content="width=device-width">
         <!--  -->
         <!--[if lt IE 10]><script>isIE=!0</script><![endif]-->
@@ -24,8 +24,9 @@
     <body class="loading"><noscript> error: scripting is disabled </noscript>
 
         <div data-role="page">
-            <div id="Main" class="">
-                <a tabindex="0" href="" id="Top"></a>
+            <a tabindex="0" href="" id="Top"></a>
+
+            <div id="Wrap">
 
                 <header>
                     <a tabindex="0" class="logo" href="//www.wellsfargo.com"></a>
@@ -34,10 +35,9 @@
                     </div>
                 </header>
 
-                <div id="Layout" class="tiles">
-                    <!--
+                <div id="Tiles">
+                    <section><!--
 1  -->
-                    <section id="row1">
                         <article class="tile _hero desktop"></article>
 
                         <article class="tile _sept">
@@ -50,10 +50,9 @@
                                href="https://www.wellsfargo.com/">Get Started</a>
                         </article>
                     </section>
-                    <!--
-2  -->
-                    <section id="row2">
 
+                    <section><!--
+2  -->
                         <article class="tile _redeem">
                             <h2>Don’t miss out!</h2>
                             <p>Redeem your code to review <br>
@@ -69,19 +68,15 @@
                                 timeline</h2>
                             <a class="control round" title="Reveal more" data-stat="Mr. Fellows tile"></a>
                         </article>
-
                     </section>
 
-                    <div class="reveal">
-                        <!--
-REVEALS 1 -->
-                        <section class="_promo reveal">
-                            <img class="cache" src="" data-src="./images/reveals/_promo.png">
-                        </section>
-                    </div>
-                    <!--
+                    <section class="_promo reveal"><!--
+2.1 -->
+                        <img class="cache" src="" data-src="./images/reveals/_promo.png">
+                    </section>
+
+                    <section><!--
 3  -->
-                    <section id="row3">
                         <article class="tile _tools">
                             <h2>Important tools</h2>
                             <a class="control round" title="Reveal more" data-stat="College Credit Card tile"></a>
@@ -102,67 +97,58 @@ REVEALS 1 -->
                         </article>
                     </section>
 
-                    <div class="reveal">
+                    <section class="_tools reveal"><!--
+3.1 Tools -->
+                        <img class="cache" src="" data-src="./images/reveals/_tools.png">
                         <!--
-REVEALS 2 -->
-                        <section class="_tools reveal">
-                            <img class="cache" src="" data-src="./images/reveals/_tools.png">
-                            <!--
-Tools
-                            <div class="desktop"></div>
-                            <article class="left">
-                                <div class="head">
-                                    <h3>One way to establish <br>solid credit </h3>
-                                </div>
-                                <div class="text">
-                                    <h4>Your credit history can impact everything from renting an apartment, setting up utilities, to getting a job...
-                                    </h4>
-                                </div>
-                                <a class="shiny show_article" data-id="A2" data-stat="One way to establish solid credit">Read More</a>
-                            </article>
-
-                            <article class="right">
-                                <div class="head">
-                                    <h3>Credit history — your <br>financial magic 8-ball</h3>
-                                </div>
-                                <div class="text">
-                                    <h4>You may start receiving credit card offers when you’re at college.
-                                        These years can be a good time to practice responsible...
-                                    </h4>
-                                </div>
-                                <a class="shiny show_article" data-id="A1" data-stat="Credit history — your financial magic 8-ball">Read More</a>
-                            </article>
-                            -->
-                        </section>
-                    </div>
-
-                    <div class="reveal">
-                        <!--
-REVEALS 3 -->
-                        <section class="_advert reveal">
-                            <img class="cache" src="" data-src="./images/reveals/_advert.png">
-                            <!--
-Advert
-                            <div class="desktop">
-                                <img class="cache" src="" data-src="./images/fellows/revealsA.png">
+                        <div class="desktop"></div>
+                        <article class="left">
+                            <div class="head">
+                                <h3>One way to establish <br>solid credit </h3>
                             </div>
-                            <article class="standard">
-                                <div class="head">
-                                    <h3>Get tips to help you better <br>manage your money.</h3>
-                                </div>
-                                <div class="text">
-                                    <p><small>All rights reserved. Member FDIC.</small></p>
-                                </div>
-                                <a class="shiny" target="_blank" data-stat="Manage your money anywhere, anytime"
-                                   href="https://www.wellsfargo.com/checking/tour/">Learn more or get started</a>
-                            </article>
-                            -->
-                        </section>
-                    </div>
-                    <!--
-4  -->
-                    <section id="row4">
+                            <div class="text">
+                                <h4>Your credit history can impact everything from renting an apartment, setting up utilities, to getting a job...
+                                </h4>
+                            </div>
+                            <a class="shiny show_article" data-id="A2" data-stat="One way to establish solid credit">Read More</a>
+                        </article>
 
+                        <article class="right">
+                            <div class="head">
+                                <h3>Credit history — your <br>financial magic 8-ball</h3>
+                            </div>
+                            <div class="text">
+                                <h4>You may start receiving credit card offers when you’re at college.
+                                    These years can be a good time to practice responsible...
+                                </h4>
+                            </div>
+                            <a class="shiny show_article" data-id="A1" data-stat="Credit history — your financial magic 8-ball">Read More</a>
+                        </article>
+                        -->
+                    </section>
+
+                    <section class="_advert reveal"><!--
+3.2 Advert -->
+                        <img class="cache" src="" data-src="./images/reveals/_advert.png">
+                        <!--
+                        <div class="desktop">
+                            <img class="cache" src="" data-src="./images/fellows/revealsA.png">
+                        </div>
+                        <article class="standard">
+                            <div class="head">
+                                <h3>Get tips to help you better <br>manage your money.</h3>
+                            </div>
+                            <div class="text">
+                                <p><small>All rights reserved. Member FDIC.</small></p>
+                            </div>
+                            <a class="shiny" target="_blank" data-stat="Manage your money anywhere, anytime"
+                               href="https://www.wellsfargo.com/checking/tour/">Learn more or get started</a>
+                        </article>
+                        -->
+                    </section>
+
+                    <section><!--
+4  -->
                         <article class="tile _october square">
                             <h3>October is Get <br>
                                 Smart About <br>
@@ -185,8 +171,8 @@ Advert
                             <a class="shiny" data-stat="Email tile"
                                href="mailto:joe@shmoe.com">Compose</a>
                         </article>
-
-                    </section>
+                    </section><!--
+end Tiles -->
                 </div>
 
                 <footer class="slug">
@@ -198,8 +184,10 @@ Advert
                         <span class="separator">&nbsp;</span>
                         <a target="_blank" href="https://www.wellsfargo.com/">wellsfargo.com</a>
                     </span>
-                </footer>
-            </div>
+                </footer><!--
+end Wrap -->
+            </div><!--
+end page -->
         </div>
 
         <div id="Modal" class="modal">
