@@ -31,7 +31,6 @@
         // - - - - - - - - - - - - - - - - - - - - -
         .desktop &._hero {
             background-image: url(../images/photos/hero.jpg);
-            background-color: $_slate;
             @include span(4, 2);
         }
         &._sept {
