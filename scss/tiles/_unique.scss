@@ -131,7 +131,16 @@
         //  R5 semantic
         // - - - - - - - - - - - - - - - - - - - - -
         &._october {
-            background-image: url(../images/misc/burnish.png);
+            background-image: url(../images/misc/burnish.png), url(../images/misc/calendar.png);
+            background-position-x: 50%, 95%;
+            background-position-y: 100%, 25%;
+            background-repeat: repeat-x, no-repeat;
+            .msie & {
+                background-image: url(../images/misc/calendar.png);
+                background-position-x: 95%;
+                background-position-y: 25%;
+                background-repeat: no-repeat;
+            }
             background-color: $_azure;
             @include span(2);
         }
