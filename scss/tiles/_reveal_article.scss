@@ -43,8 +43,15 @@ section.reveal article {
         }
     }
     &.standard {
-        margin-left: auto;
+        margin-right: auto;
         width: 66%;
+
+        ul {
+            margin-left: 1.5em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
     }
     &.center {
         margin: auto;
