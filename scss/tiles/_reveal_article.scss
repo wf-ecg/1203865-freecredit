@@ -8,10 +8,8 @@ section.reveal article {
     &.standard,
     &.left,
     &.right {
+        float: left;
         height: 100%;
-        overflow: hidden;
-        position: relative;
-        width: 99%;
 
         .mobile & {
             clear: both;
@@ -19,28 +17,18 @@ section.reveal article {
             width: 100%;
         }
     }
-    &.left, &.right {
-        .mobile & a.shiny {
-            margin: 1em;
-        }
-    }
     &.left {
-        float: left;
-        padding: 1em;
-        width: 50%;
+        width: 32%;
+    }
+    &.center {
+        border-left: 1px solid #999;
+        padding-left: 1em;
+        width: 38%;
     }
     &.right {
-        margin-left: -1em;
-        padding: 1em;
-        float: right;
-        width: 50%;
-
-        .desktop & {
-            border-left: 1px solid #ddd;
-        }
-        .mobile & {
-            border-top: 1px solid #ddd;
-        }
+        border-left: 1px solid #999;
+        padding-left: 1em;
+        width: 26%;
     }
     &.standard {
         margin-right: auto;
@@ -51,15 +39,6 @@ section.reveal article {
         }
         li {
             margin-bottom: 0.5em;
-        }
-    }
-    &.center {
-        margin: auto;
-        width: 37%;
-
-        .mobile & {
-            margin: 0;
-            width: 66%;
         }
     }
 }
