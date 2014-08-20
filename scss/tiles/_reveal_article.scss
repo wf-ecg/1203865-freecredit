@@ -4,12 +4,13 @@
 section.reveal article {
     color: $gray;
 
-    &.center,
     &.standard,
+    &.center,
     &.left,
     &.right {
         float: left;
         height: 100%;
+        width: 33%;
 
         .mobile & {
             clear: both;
@@ -18,17 +19,15 @@ section.reveal article {
         }
     }
     &.left {
-        width: 32%;
+        padding-left: 0;
     }
     &.center {
         border-left: 1px solid #999;
         padding-left: 1em;
-        width: 38%;
     }
     &.right {
         border-left: 1px solid #999;
         padding-left: 1em;
-        width: 26%;
     }
     &.standard {
         margin-right: auto;
