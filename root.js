@@ -12,6 +12,11 @@ W.ROOT = ({
             nom: 'wfmedia',
             sub: '/fcs',
         },
+        'ecg.hosting.wellsfargo.com': {
+            nom: 'mfal',
+            lib: '/mfal/lib',
+            sub: '/mfal/fcstraining',
+        },
         '10.89.101.100': {
             nom: 'qla2',
             sub: '/wf-ecg/1203865-freecredit',
