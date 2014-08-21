@@ -42,6 +42,26 @@ var Main = (function ($, G, U) { // IIFE
         this.scrollTo(0, 0);
     }
 
+    function genGAstrings() { // google analytics
+        var all = $('a').not('[data-stat]'); // links without data-stat
+
+        all.each(function () {
+            var st, me = $(this);
+
+            // take nearest header and text value of link
+            st = me.closest('article').find(':header').first().text();
+            st = st + ' > ' + (me.text() || me.attr('title') || '[OX]');
+
+            // generate data-stat value
+            st = st.replace(/^\s|(\s){2,}|\s$/g, '$1');
+            me.attr('data-stat', st);
+        });
+
+        if (U.debug(1)){
+            C.debug(name, 'makeStat', all);
+        }
+    }
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
@@ -99,9 +119,9 @@ var Main = (function ($, G, U) { // IIFE
         C.info('Main init @ ' + Date() + ' debug:', W.debug, self.mode);
 
         expander();
-
-        $('#Top').scrollTo();
+        genGAstrings();
         bind();
+        $('#Top').scrollTo();
     }
 
     $.extend(self, {

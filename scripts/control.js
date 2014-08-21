@@ -71,6 +71,7 @@ var Control = (function ($, G, U) { // IIFE
                     }
                     cbs.fire(obj);
                 }
+                return obj;
             },
             reset: function (stat) {
                 obj.btn.removeClass(obj.status);
@@ -104,7 +105,7 @@ var Control = (function ($, G, U) { // IIFE
 
         Df.all.push(obj);
         btn.data(name, obj);
-        return obj;
+        return obj.todo(); // chainable
     }
 
     function bind() {
