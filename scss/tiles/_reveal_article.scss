@@ -33,12 +33,61 @@ section.reveal article {
         margin-right: auto;
         width: 66%;
 
-        ul {
-            margin-left: 1.5em;
+        ul { margin-left: 1.5em; }
+        li { margin-bottom: 0.5em; }
+    }
+    .text h3 {
+        margin-bottom: 0.5em;
+
+        &:before {
+            content: url(../images/controls/pdf-icon.png);
+            margin-left: -0.25em;
+            margin-right: 0.125em;
         }
-        li {
-            margin-bottom: 0.5em;
+        a { text-decoration: none; }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+section.reveal._tools article {
+    &.left { width: 31%; }
+    &.center { width: 38%; }
+    &.right { width: 29%; }
+
+    .head {
+        padding-left: 0.25em;
+        padding-top: 0;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+section.reveal._advert article {
+    &.left {
+        width: 28%;
+
+        .text h3:before {
+            content: url(../images/controls/pdf-icon.png);
+            padding-left: 0.5em;
         }
+    }
+    &.center {
+        width: 40%;
+
+        .text h3:before {
+            padding-left: 0.5em;
+        }
+    }
+    &.right {
+        width: 26%;
+
+        .text h3:before {
+            padding-left: 0.5em;
+        }
+    }
+    .head {
+        padding-left: 0.75em;
+        padding-top: 0;
+    }
+    .text h3 {
+        line-height: 1.3;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
