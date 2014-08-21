@@ -27,23 +27,13 @@ var Reveal = (function ($, G, U) { // IIFE
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     // HELPERS (defaults dependancy only)
 
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    /// INTERNAL
-    // attach expand/contract/status events to items with _reveal
-
     function mobile() {
         return El.body.is('.mobile');
     }
 
-    function scroller(obj) {
-        if (!obj.carousel) {
-            return;
-        } else if (obj.status === 'active') {
-            obj.carousel.tm = Carousel.auto(obj.carousel);
-        } else {
-            W.clearInterval(obj.carousel.tm);
-        }
-    }
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /// INTERNAL
+    // attach expand/contract/status events to items with _reveal
 
     function fader(obj) {
         var div, mob;
@@ -58,7 +48,6 @@ var Reveal = (function ($, G, U) { // IIFE
             });
             div.children().fadeIn(Df.speed * 2, function () {
                 div.removeClass('animate');
-                obj.carousel && obj.carousel.refresh();
             });
         } else {
             div.addClass('animate').css({
@@ -72,17 +61,12 @@ var Reveal = (function ($, G, U) { // IIFE
     }
 
     function datify(sect) {
-        var cbs, obj, wrap, wrapped;
+        var cbs, obj;
 
         cbs = $.Callbacks();
 
-        wrap = sect.parent().closest('.reveal');
-        wrapped = wrap.data('carousel') || false;
-        wrap = wrapped ? wrap : sect;
-
         obj = {
-            wrap: wrap,
-            carousel: wrapped,
+            wrap: sect,
             status: 'active',
             todo: function (fn) {
                 if (fn) {
@@ -123,7 +107,6 @@ var Reveal = (function ($, G, U) { // IIFE
 
 
         obj.todo(fader);
-        obj.todo(scroller);
         obj.deactivate();
 
         Df.all.push(obj);

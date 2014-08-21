@@ -47,9 +47,9 @@ var Control = (function ($, G, U) { // IIFE
 
     function titler(obj) {
         if (obj.status === 'active') {
-            obj.btn.attr('title', 'Close section');
+            obj.btn.attr('title', 'Close');
         } else {
-            obj.btn.attr('title', 'Reveal more');
+            obj.btn.attr('title', 'Reveal');
         }
     }
 

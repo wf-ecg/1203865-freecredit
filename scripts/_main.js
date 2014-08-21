@@ -1,6 +1,6 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-          Control, Decache, Include, Modal, Respond, Reveal, Stats, */
+          Control, Decache, Modal, Respond, Reveal, Stats, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Main = (function ($, G, U) { // IIFE
     'use strict';
@@ -45,64 +45,6 @@ var Main = (function ($, G, U) { // IIFE
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
-    function linkVid(evt) {
-        var me, stub;
-
-        me = $(evt.currentTarget);
-        stub = me.data('src');
-
-        me.attr({
-            href: '//www.youtube.com/embed/' + stub + '?rel=0&html5=1',
-            target: '_blank',
-        });
-        return true;
-    }
-
-    function embedVid(evt) {
-        var me, stub, vid, ifr, mod, tmp;
-        evt.preventDefault();
-
-        me = $(evt.currentTarget);
-        stub = me.data('src');
-        vid = $('#Video');
-        ifr = vid.find('iframe');
-        mod = $('div#Modal');
-
-        Modal.show();
-        vid.show();
-
-        ifr.attr({
-            src: '//www.youtube.com/embed/' + stub + '?rel=0&html5=1',
-        });
-        mod.one('hide.Modal', function () {
-            ifr.attr('src', 'about:blank');
-            vid.children().hide();
-        });
-        vid.show().children().show();
-
-        // hack Sure Pay to show transcript
-        if (stub === 'j-A19zzzzq4') {
-            tmp = 'https://www.getbankingdone.com/files/WF_SurePay_DemoTranscript.pdf';
-            tmp = hackTranscript(vid, tmp);
-
-            mod.one('hide.Modal', function () {
-                tmp.remove();
-            });
-        }
-    }
-
-    function hackTranscript(ele, href) {
-        var wrap, link;
-        wrap = $('<aside class="modal linkMessage"></aside>');
-        link = $('<a>Transcript</a>').attr({
-            href: href,
-            target: '_blank',
-        });
-        wrap.append(link);
-        ele.append(wrap);
-        return wrap;
-    }
-
     function watchInputDevice() {
         var htm = $('html');
         htm.on('keydown', function (evt) { // key action
@@ -136,10 +78,6 @@ var Main = (function ($, G, U) { // IIFE
         Respond.init();
         //Stats.init();
 
-        $('.video > a').on('click touchend', function (evt) {
-            return jsView.mobile.agent() ? linkVid(evt) : embedVid(evt); // linkVid is used since mobile.agent returns for ipads
-        });
-
         $('.masthead').on('dblclick', function (evt) {
             evt.preventDefault();
             if (!W.isIE) {
@@ -162,9 +100,8 @@ var Main = (function ($, G, U) { // IIFE
 
         expander();
 
-        Include.init();
         $('#Top').scrollTo();
-        Include.later(bind);
+        bind();
     }
 
     $.extend(self, {
