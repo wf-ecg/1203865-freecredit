@@ -81,7 +81,7 @@ Glob = new Global('Glob');
         G.src + 'modal.js',
         G.src + 'respond.js',
         G.src + 'reveal.js',
-        //G.src + 'stats.js',
+        G.src + 'stats.js',
         G.src + '_main.js',
         ],
         complete: function () {
