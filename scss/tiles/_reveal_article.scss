@@ -1,16 +1,24 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* TILES / Reveal-Article */
+/* TILES / Reveal-Unique */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+section.reveal {
+    /// UNIQUE
+
+    &._tools {
+        padding: 1em 0 1em 1em;
+    }
+    &._advert {
+        font-size: 150%;
+        padding: 2em 0 2em 1em;
+    }
+
+}
 section.reveal article {
-    color: $gray;
 
     &.standard,
     &.center,
     &.left,
     &.right {
-        float: left;
-        height: 100%;
-        width: 33%;
 
         .mobile & {
             clear: both;
@@ -32,9 +40,6 @@ section.reveal article {
     &.standard {
         margin-right: auto;
         width: 66%;
-
-        ul { margin-left: 1.5em; }
-        li { margin-bottom: 0.5em; }
     }
     .text h3 {
         margin-bottom: 0.5em;
@@ -48,6 +53,14 @@ section.reveal article {
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+section.reveal._tools,
+section.reveal._advert {
+    .mobile & article {
+        height: auto !important;
+        width: 100% !important;
+    }
+
+}
 section.reveal._tools article {
     &.left { width: 30%; }
     &.center { width: 35%; }
@@ -58,7 +71,6 @@ section.reveal._tools article {
         padding-top: 0;
     }
 }
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 section.reveal._advert article {
     &.left {
         width: 28%;

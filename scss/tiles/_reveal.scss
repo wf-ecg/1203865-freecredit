@@ -12,8 +12,24 @@ section.reveal {
     position: relative;
     z-index: -1;
 
+    .mobile & {
+        overflow: auto;
+    }
+
     a {
         color: $gray;
+    }
+    article {
+        // see _reveal_article
+
+        color: $gray;
+        float: left;
+        height: 100%;
+        width: 33%;
+
+        ul { margin-left: 1.5em; }
+        li { margin-bottom: 0.5em; }
+
     }
     img {
         position: absolute;
@@ -56,15 +72,6 @@ section.reveal {
                 margin: $unit 0;
             }
         }
-    }
-    /// UNIQUE
-
-    &._tools {
-        padding: 1em 0 1em 1em;
-    }
-    &._advert {
-        font-size: 150%;
-        padding: 2em 0 2em 1em;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

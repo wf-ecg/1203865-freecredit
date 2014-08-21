@@ -44,7 +44,7 @@ var Reveal = (function ($, G, U) { // IIFE
         if (obj.status === 'active') {
             div.addClass('animate').show().css({
                 display: 'block',
-                height: Df.revealpx * (mob ? 1.2 : 1),
+                height: Df.revealpx,
             });
             div.children().fadeIn(Df.speed * 2, function () {
                 div.removeClass('animate');
