@@ -3,7 +3,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W = window,
 C = W.console;
-W.debug = Number(new Date('2014/08/29') > new Date());
+W.debug = Number(new Date('2014/08/22') > new Date());
 W.ROOT = ({
     base: 0,
     // adjust built-in page depth? (e.g. '-1' == '..')

@@ -31,7 +31,7 @@ Glob = new Global('Glob');
         });
         W.debug--;
     }
-    if (ROOT.conf.nom === 'wfmedia') {
+    if (ROOT.conf.nom === 'wfmedia' || ROOT.conf.nom === 'mfal') {
         W.debug--;
     }
     if (ROOT.conf.nom === 'localhost') {
@@ -91,10 +91,10 @@ Glob = new Global('Glob');
     };
 
     Load.test = {
-        test: W.debug >= 0,
+        test: W.debug >= 1,
         yep: [],
         nope: [
-        'http://www.wellsfargomedia.com/lib/js/ecg-ga.js',
+        G.loc + 'ecg-ga.js',
         ],
     };
     M.load([Load.base, Load.font, Load.main, Load.test]);
