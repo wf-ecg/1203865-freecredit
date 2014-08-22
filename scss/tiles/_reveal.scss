@@ -3,7 +3,8 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 section.reveal {
     .mobile & {
-        overflow: auto;
+        overflow-y: scroll; /* has to be scroll, for momentum */
+        -webkit-overflow-scrolling: touch;
     }
     background-image: url(../images/features/_bkgr.png);
     background-size: 100% 100%;
@@ -60,7 +61,7 @@ section.reveal {
     .head {
         h3 {
             color: $red;
-            font-size: 166%;
+            font-size: 150%;
             font-style: italic;
             font-weight: 800;
             letter-spacing: -1px;
