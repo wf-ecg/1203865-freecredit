@@ -14,6 +14,8 @@
     display: inherit !important;
 }
 html.mobile {
+    font-size: 13px;
+
     .ui-page {
         width: $lillwidth + 20;
     }
