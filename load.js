@@ -42,11 +42,8 @@ Glob = new Global('Glob');
         test: W.isIE,
         yep: [
         G.lib + 'ie/split.js',
-        G.loc + 'iscroll-ie.js',
         ],
-        nope: [
-        G.lib + 'iscroll/5.1.1/iscroll.js',
-        ],
+        nope: [],
         both: [
         G.lib + 'jq/jq-pubsub.js',
         /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
