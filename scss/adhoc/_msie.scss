@@ -2,9 +2,6 @@
 /* ADHOC / Msie */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 html.msie {
-    #Modal {
-        background-image: url(../images/misc/masq.png);
-    }
     .badbrowser {
         &::before {
             content: 'scold';

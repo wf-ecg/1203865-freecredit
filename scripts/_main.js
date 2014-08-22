@@ -1,6 +1,6 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-          Control, Decache, Modal, Respond, Reveal, Stats, */
+          Control, Decache, Respond, Reveal, Stats, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Main = (function ($, G, U) { // IIFE
     'use strict';
@@ -93,7 +93,6 @@ var Main = (function ($, G, U) { // IIFE
         });
 
         Control.init(Df.speed);
-        Modal.init(Df.speed);
         Reveal.init(Df.speed);
         Respond.init();
         //Stats.init();
