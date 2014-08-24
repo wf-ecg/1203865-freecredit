@@ -1,4 +1,4 @@
-/*jslint white:false */
+/*jslint white:false, evil: true */
 /*globals window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W = window,
@@ -25,6 +25,10 @@ W.ROOT = ({
         'localhost:8000': {
             nom: 'localhost',
             sub: '/wf-ecg/1203865-freecredit/app',
+        },
+        'localhost:8001': {
+            nom: 'localhost',
+            sub: '',
         },
     },
     dir: null,
@@ -62,7 +66,7 @@ W.ROOT = ({
     },
     _wrap: function (R) { // write out bootstrap element
         evil(R.base && R.D.write('<base href="' + R.base + '">'));
-        R.D.write('<script src="./build/boot.js"></script>');
+        R.D.write('<script src="./build/boot.min.js"></script>');
         delete R._wrap;
     },
     loaded: function ($) {
