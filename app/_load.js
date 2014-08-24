@@ -49,10 +49,7 @@ Glob = new Global('Glob');
         /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
         G.lib + 'jquery/mobile/custom/jquery.mobile.js',
         /* */
-        G.loc + 'jq-help.js',
-        G.loc + 'js-view.js',
-        G.loc + 'mzr-highres.js',
-        G.loc + '_util.js',
+        G.dir + 'build/lib.js',
         ],
         complete: function () {
             U = Util;
@@ -73,13 +70,7 @@ Glob = new Global('Glob');
 
     Load.main = {
         both: [
-        G.src + 'control.js',
-        G.src + 'decache.js',
-        G.src + 'modal.js',
-        G.src + 'respond.js',
-        G.src + 'reveal.js',
-        G.src + 'stats.js',
-        G.src + '_main.js',
+        G.dir + 'build/src.js',
         ],
         complete: function () {
             ROOT.loaded($);
@@ -91,7 +82,7 @@ Glob = new Global('Glob');
         test: W.debug >= 1,
         yep: [],
         nope: [
-        G.loc + 'ecg-ga.js',
+        'http://www.wellsfargomedia.com/lib/js/ga-ecg.js',
         ],
     };
     M.load([Load.base, Load.font, Load.main, Load.test]);

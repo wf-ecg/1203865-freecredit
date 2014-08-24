@@ -61,11 +61,7 @@ W.ROOT = ({
     },
     _wrap: function (R) { // write out bootstrap element
         R.base && R.D.write('<base href="' + R.base + '">');
-        R.D.write('<script src="' + R.lib + '/jquery/1.8.2/jquery.js"></script>');
-        R.D.write('<script src="' + R.lib + '/modernizr/2.6.2/modernizr.js"></script>');
-        R.D.write('<script src="' + R.lib + '/underscore/js-1.4.4/lodash.underscore.js"></script>');
-        R.D.write('<script src="' + R.lib + '/js/console.js"></script>');
-        R.D.write('<script src="' + R.lib + '/js/global.js"></script>');
+        R.D.write('<script src="./build/boot.js"></script>');
         delete R._wrap;
     },
     loaded: function ($) {

@@ -1,11 +1,12 @@
 # Require any additional compass plugins here.
-# require "animation"
+# https://github.com/ericam/compass-animation
+require "animation"
 
 # Set this to the root of your project when deployed:
 http_path = ""
 css_dir = "app/build"
 fonts_dir = "fonts"
-sass_dir = "styles"
+sass_dir = "scss"
 images_dir = "images"
 javascripts_dir = "scripts"
 

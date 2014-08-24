@@ -11,7 +11,7 @@ module.exports = {
         },
     },
     js: {
-        files: ['scripts/*.js'],
+        files: ['libs/*.js', 'scripts/*.js'],
         tasks: ['jshint', 'concat'],
         options: {
             spawn: false,
