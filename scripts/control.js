@@ -53,10 +53,10 @@ var Control = (function ($, G, U) { // IIFE
         }
     }
 
-    function datify() {
+    function datify(i, e) {
         var btn, cbs, obj;
 
-        btn = $(this);
+        btn = $(e);
         cbs = $.Callbacks();
 
         obj = {

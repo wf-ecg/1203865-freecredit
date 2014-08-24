@@ -5,6 +5,7 @@ var W = window,
 C = W.console;
 W.debug = Number(new Date('2014/08/22') > new Date());
 W.ROOT = ({
+    evil: "eval('var x=0'),(typeof(x)!=='number'?'':'non-')+'strict'",
     base: 0,
     // adjust built-in page depth? (e.g. '-1' == '..')
     conf: {
@@ -23,7 +24,7 @@ W.ROOT = ({
         },
         'localhost:8000': {
             nom: 'localhost',
-            sub: '/wf-ecg/1203865-freecredit',
+            sub: '/wf-ecg/1203865-freecredit/app',
         },
     },
     dir: null,
@@ -52,7 +53,7 @@ W.ROOT = ({
         R.deep.pop(); //                        trim docname
         R.comp = R.deep.slice(0, R.base); //    hoist to top of subproject
         if (R.base && (R.deep.length + R.base) !== 0) {
-            R.comp.length && R.comp.push(''); //slash
+            evil(R.comp.length && R.comp.push('')); //slash
             R.base = R.L.protocol + R.conf.top + R.dir + '/' + R.comp.join('/');
         } else {
             delete R.base;
@@ -60,7 +61,7 @@ W.ROOT = ({
         delete R._down;
     },
     _wrap: function (R) { // write out bootstrap element
-        R.base && R.D.write('<base href="' + R.base + '">');
+        evil(R.base && R.D.write('<base href="' + R.base + '">'));
         R.D.write('<script src="./build/boot.js"></script>');
         delete R._wrap;
     },
@@ -74,7 +75,12 @@ W.ROOT = ({
         }
     },
     init: function () {
+        'use strict';
         var R = this;
+        R.evil = eval(R.evil);
+        W.evil = function () {
+            return R.evil;
+        };
         R.D = W.document;
         R.L = W.location;
         R._host(this);

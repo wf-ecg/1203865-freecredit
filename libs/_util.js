@@ -172,7 +172,6 @@ var Util = (function ($) { /// IIFE
         I: U.reflect,
         mobile: W.View && View.mobile,
         viewport: W.View && View.port,
-        testrict: "eval('var x=0'),(typeof(x)!=='number'?'':'non-')+'strict'",
     }, U);
 
     return self;

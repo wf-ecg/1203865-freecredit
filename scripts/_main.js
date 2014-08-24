@@ -1,4 +1,4 @@
-/*jslint white:false */
+/*jslint white: false, evil: true */
 /*globals _, C, W, Glob, Util, jQuery,
           Control, Decache, Respond, Reveal, Stats, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -37,11 +37,6 @@ var Main = (function ($, G, U) { // IIFE
         }
     }
 
-    function isfreshen() {
-        this.refresh();
-        this.scrollTo(0, 0);
-    }
-
     function genGAstrings() { // google analytics
         var all = $('a').not('[data-stat]'); // links without data-stat
 
@@ -57,7 +52,7 @@ var Main = (function ($, G, U) { // IIFE
             me.attr('data-stat', st);
         });
 
-        if (U.debug(1)){
+        if (U.debug(1)) {
             C.debug(name, 'makeStat', all);
         }
     }
@@ -86,7 +81,7 @@ var Main = (function ($, G, U) { // IIFE
         watchInputDevice(); // detect mouse or keys for highlighting
 
         $('a, .control, .shiny, .closeWidget').not('[tabindex]').attr('tabindex', 9);
-        $('a').not('[href]').attr('href', 'javascript:void(0)');
+        $('a').not('[href]').attr('href', '');
         $('a').not('.control, .shiny, .closeWidget').each(function () {
             var me = $(this);
             me.attr('title', me.attr('href').replace(/(\S*?\/\/\S+?)\/.*/, '$1'));
@@ -115,7 +110,7 @@ var Main = (function ($, G, U) { // IIFE
         }
         Df.inits();
         self.serv = W.location.hostname;
-        C.info('Main init @ ' + Date() + ' debug:', W.debug, self.mode);
+        C.info('Main init @ ' + Date() + ' debug:', W.debug, ROOT.evil);
 
         expander();
         genGAstrings();

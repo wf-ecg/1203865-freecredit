@@ -5,7 +5,7 @@ module.exports = {
             style: 'expanded' // cssmin will minify later
         },
         files: {
-            'app/build/all.css': 'styles/screen.scss'
+            'app/build/all.css': 'scss/screen.scss'
         }
     }
 };

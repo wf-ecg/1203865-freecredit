@@ -1,10 +1,7 @@
 /*jslint white:false */
 /*globals $, Global, Main, Modernizr, ROOT, _, jQuery, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-'use strict';
-var Data, Glob;
-
-Glob = new Global('Glob');
+var Data, Glob = new Global('Glob');
 
 (function ($, M, G) {
     'use strict';
@@ -46,9 +43,8 @@ Glob = new Global('Glob');
         nope: [],
         both: [
         G.lib + 'jq/jq-pubsub.js',
-        /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
         G.lib + 'jquery/mobile/custom/jquery.mobile.js',
-        /* */
+        /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
         G.dir + 'build/lib.js',
         ],
         complete: function () {
@@ -74,7 +70,7 @@ Glob = new Global('Glob');
         ],
         complete: function () {
             ROOT.loaded($);
-            W.Main && W.Main.init();
+            evil(W.Main && W.Main.init());
         },
     };
 
