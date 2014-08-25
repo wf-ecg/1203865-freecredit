@@ -43,7 +43,7 @@ var Data, Glob = new Global('Glob');
         nope: [],
         both: [
         G.lib + 'jq/jq-pubsub.js',
-        G.lib + 'jquery/mobile/custom/jquery.mobile.js',
+        G.lib + 'jquery/mobile/custom/jquery.mobile.min.js',
         /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
         'build/lib.js',
         ],

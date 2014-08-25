@@ -4,6 +4,9 @@ module.exports = {
         sourceMap: true,
     },
     bootstrap: {
+        options: {
+            sourceMap: false,
+        },
         src: [
             'libs/bootstrap/jquery.js',
             'libs/bootstrap/modernizr.js',

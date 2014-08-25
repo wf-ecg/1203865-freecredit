@@ -13,8 +13,8 @@ module.exports = {
         },
         files: {
             'app/build/boot.min.js': ['app/build/boot.js'],
-            'app/build/lib.min.js': ['app/build/lib.js'],
-            'app/build/src.min.js': ['app/build/src.js'],
+//            'app/build/lib.min.js': ['app/build/lib.js'],
+//            'app/build/src.min.js': ['app/build/src.js'],
         }
     },
 };
