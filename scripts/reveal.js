@@ -1,4 +1,4 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
         Reveal:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -55,7 +55,7 @@ var Reveal = (function ($, G, U) { // IIFE
             });
             div.children().fadeOut(Df.speed, function () {
                 div.removeClass('animate');
-                div.is('.is-port') || div.hide();
+                evil(div.is('.is-port') || div.hide());
             });
         }
     }
