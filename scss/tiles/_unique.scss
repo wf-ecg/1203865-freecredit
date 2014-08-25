@@ -21,7 +21,6 @@
 
         .mobile &:not(.square) {
             width: $lillwidth - 20;
-            br { display: none; }
         }
         .mobile &.square {
             max-width: $unit * 14.5;
@@ -31,7 +30,6 @@
         // - - - - - - - - - - - - - - - - - - - - -
         .desktop &._hero {
             background-image: url(../images/photos/hero.jpg);
-            background-color: $_slate;
             @include span(4, 2);
         }
         &._sept {
@@ -49,6 +47,7 @@
             @include span(2, 2);
 
             .mobile & {
+                br { display: none; }
                 height: 12em;
             }
         }
@@ -78,8 +77,8 @@
             }
             .mobile & {
                 background-position: 20% 0%;
-                padding-left: 12em;
-                padding-right: 1em;
+                padding-left: 1em;
+                padding-right: 5em;
             }
         }
         //  R4 semantic
@@ -132,7 +131,16 @@
         //  R5 semantic
         // - - - - - - - - - - - - - - - - - - - - -
         &._october {
-            background-image: url(../images/misc/burnish.png);
+            background-image: url(../images/misc/burnish.png), url(../images/misc/calendar.png);
+            background-position-x: 50%, 95%;
+            background-position-y: 100%, 25%;
+            background-repeat: repeat-x, no-repeat;
+            .msie & {
+                background-image: url(../images/misc/calendar.png);
+                background-position-x: 95%;
+                background-position-y: 25%;
+                background-repeat: no-repeat;
+            }
             background-color: $_azure;
             @include span(2);
         }

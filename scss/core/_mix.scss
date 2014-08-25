@@ -90,7 +90,7 @@
     @include transition( all 0.25s ease-in-out 0 );
 }
 @mixin bulge(){
-    @include transform( translate(0px, 1px) scale(1.1)  );
+    @include transform( translate(0px, 1px) scale(0.98)  );
 }
 @mixin fxreset(){
     @include backface-visibility( hidden );
