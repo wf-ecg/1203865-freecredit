@@ -1,10 +1,7 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals $, Global, Main, Modernizr, ROOT, _, jQuery, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-'use strict';
-var Data, Glob;
-
-Glob = new Global('Glob');
+var Data, Glob = new Global('Glob');
 
 (function ($, M, G) {
     'use strict';
@@ -31,7 +28,7 @@ Glob = new Global('Glob');
         });
         W.debug--;
     }
-    if (ROOT.conf.nom === 'wfmedia') {
+    if (ROOT.conf.nom === 'wfmedia' || ROOT.conf.nom === 'mfal') {
         W.debug--;
     }
     if (ROOT.conf.nom === 'localhost') {
@@ -42,20 +39,13 @@ Glob = new Global('Glob');
         test: W.isIE,
         yep: [
         G.lib + 'ie/split.js',
-        G.loc + 'iscroll-ie.js',
         ],
-        nope: [
-        G.lib + 'iscroll/5.1.1/iscroll.js',
-        ],
+        nope: [],
         both: [
         G.lib + 'jq/jq-pubsub.js',
+        G.lib + 'jquery/mobile/custom/jquery.mobile.min.js',
         /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
-        G.lib + 'jquery/mobile/custom/jquery.mobile.js',
-        /* */
-        G.loc + 'jq-help.js',
-        G.loc + 'js-view.js',
-        G.loc + 'mzr-highres.js',
-        G.loc + '_util.js',
+        'build/lib.js',
         ],
         complete: function () {
             U = Util;
@@ -76,25 +66,19 @@ Glob = new Global('Glob');
 
     Load.main = {
         both: [
-        G.src + 'control.js',
-        G.src + 'decache.js',
-        G.src + 'modal.js',
-        G.src + 'respond.js',
-        G.src + 'reveal.js',
-        G.src + 'stats.js',
-        G.src + '_main.js',
+        'build/src.js',
         ],
         complete: function () {
             ROOT.loaded($);
-            W.Main && W.Main.init();
+            evil(W.Main && W.Main.init());
         },
     };
 
     Load.test = {
-        test: W.debug >= 0,
+        test: W.debug >= 1,
         yep: [],
         nope: [
-        'http://www.wellsfargomedia.com/lib/js/ecg-ga.js',
+        'http://www.wellsfargomedia.com/lib/js/ga-ecg.js',
         ],
     };
     M.load([Load.base, Load.font, Load.main, Load.test]);

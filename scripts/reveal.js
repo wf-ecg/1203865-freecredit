@@ -1,4 +1,4 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
         Reveal:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -44,7 +44,7 @@ var Reveal = (function ($, G, U) { // IIFE
         if (obj.status === 'active') {
             div.addClass('animate').show().css({
                 display: 'block',
-                height: Df.revealpx * (mob ? 1.2 : 1),
+                height: Df.revealpx,
             });
             div.children().fadeIn(Df.speed * 2, function () {
                 div.removeClass('animate');
@@ -55,7 +55,7 @@ var Reveal = (function ($, G, U) { // IIFE
             });
             div.children().fadeOut(Df.speed, function () {
                 div.removeClass('animate');
-                div.is('.is-port') || div.hide();
+                evil(div.is('.is-port') || div.hide());
             });
         }
     }

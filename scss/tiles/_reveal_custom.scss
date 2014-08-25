@@ -1,0 +1,57 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* TILES / Reveal-Custom */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+section.reveal {
+
+    &._tools, &._advert {
+        .mobile & article {
+            height: auto !important;
+            padding: 0;
+            width: 100% !important;
+        }
+    }
+    &._tools {
+        padding: 1em 0 1em 1em;
+    }
+    &._advert {
+        font-size: 150%;
+        padding: 2em 0 2em 1em;
+    }
+    article {
+        .mobile & {
+            clear: both;
+            padding-top: 0;
+            width: 100%;
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+section.reveal._tools article {
+    &.left { width: 30%; }
+    &.center { width: 35%; }
+    &.right { width: 30%; }
+
+    .head {
+        padding-left: 0.25em;
+        padding-top: 0;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+section.reveal._advert article {
+    &.left { width: 26%; }
+    &.center { width: 36%; }
+    &.right { width: 36%; }
+
+    .head {
+        padding-left: 0.75em;
+        padding-top: 0;
+    }
+    .text h3 {
+        line-height: 1.3;
+
+        &:before {
+            padding-left: 0.5em;
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

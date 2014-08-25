@@ -2,6 +2,10 @@
 /* TILES / Reveal */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 section.reveal {
+    .mobile & {
+        overflow-y: scroll; /* has to be scroll, for momentum */
+        -webkit-overflow-scrolling: touch;
+    }
     background-image: url(../images/features/_bkgr.png);
     background-size: 100% 100%;
     font-size: 18px;
@@ -15,7 +19,32 @@ section.reveal {
     a {
         color: $gray;
     }
+    article {
+        color: $gray;
+        float: left;
+        height: 100%;
+        margin-right: auto;
+        padding-left: 1em;
+        width: 66%;
+
+        .desktop & {
+            &.left {
+                padding-left: 0;
+            }
+            &.center {
+                border-left: 1px solid #999;
+            }
+            &.right {
+                border-left: 1px solid #999;
+            }
+            &.standard {
+                margin-right: auto;
+                width: 66%;
+            }
+        }
+    }
     img {
+        display: block;
         position: absolute;
         right: 0;
     }
@@ -32,7 +61,7 @@ section.reveal {
     .head {
         h3 {
             color: $red;
-            font-size: 166%;
+            font-size: 150%;
             font-style: italic;
             font-weight: 800;
             letter-spacing: -1px;
@@ -43,6 +72,16 @@ section.reveal {
         font-size: 14px;
         padding-top: 0;
 
+        h3 {
+            margin-bottom: 0.5em;
+
+            &:before {
+                content: url(../images/controls/pdf-icon.png);
+                margin-left: -0.25em;
+                margin-right: 0.125em;
+            }
+            a { text-decoration: none; }
+        }
         h4 {
             line-height: 1.5;
         }
@@ -56,15 +95,8 @@ section.reveal {
                 margin: $unit 0;
             }
         }
-    }
-    /// UNIQUE
-
-    &._tools {
-        padding: 1em 0 1em 1em;
-    }
-    &._advert {
-        font-size: 150%;
-        padding: 2em 0 2em 1em;
+        ul { margin-left: 1.5em; }
+        li { margin-bottom: 0.5em; }
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

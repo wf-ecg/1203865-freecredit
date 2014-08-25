@@ -6,7 +6,20 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 @import "core/_all";
 @import "adhoc/_all";
-@import "modal/_all";
 @import "tiles/_all";
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+@media print {
+    body {
+        background: none;
+    }
+    .noprint {
+        display: none;
+    }
+    #Popup {
+        display: block;
+    }
+    #Wrap {
+        display: none;
+    }
+}
 /* >^º!º^< */

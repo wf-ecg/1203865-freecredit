@@ -1,4 +1,4 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
         Control:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -53,10 +53,10 @@ var Control = (function ($, G, U) { // IIFE
         }
     }
 
-    function datify() {
+    function datify(i, e) {
         var btn, cbs, obj;
 
-        btn = $(this);
+        btn = $(e);
         cbs = $.Callbacks();
 
         obj = {

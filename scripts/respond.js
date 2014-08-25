@@ -1,6 +1,6 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-        Respond:true, Respond, jsView, */
+        Respond:true, jsView, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Respond = (function ($, G, U) { // IIFE
     'use strict';
@@ -17,7 +17,7 @@ var Respond = (function ($, G, U) { // IIFE
 
     function swaps() {
         var p, f, l;
-        p = $('section article._promo').parent()
+        p = $('section article._promo').parent();
         f = p.children().first();
         l = p.children().last();
         p.prepend(l).append(f);
@@ -83,7 +83,7 @@ var Respond = (function ($, G, U) { // IIFE
             $('html').addClass('ipad');
         }
 
-        if (U.debug(1)){
+        if (U.debug(1)) {
             C.debug(name, '_detect', d);
         }
         if (d !== Df.current) {
