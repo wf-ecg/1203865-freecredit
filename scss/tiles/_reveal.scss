@@ -17,6 +17,7 @@ section.reveal {
     }
     img {
         position: absolute;
+        right: 0;
     }
 
     .head, .text {
@@ -28,23 +29,19 @@ section.reveal {
             }
         }
     }
-
     .head {
-
         h3 {
             color: $red;
-            font-size: 150%;
+            font-size: 166%;
             font-style: italic;
             font-weight: 800;
             letter-spacing: -1px;
             line-height: 1.3;
-            margin-top: $unit;
         }
     }
     .text {
         font-size: 14px;
         padding-top: 0;
-        padding-right: 3em;
 
         h4 {
             line-height: 1.5;
@@ -61,15 +58,13 @@ section.reveal {
         }
     }
     /// UNIQUE
-    .mobile &._tools {
-        height: 300% !important;
-    }
-    &.xB h3 { // shrink text overload
-        font-size: 120%;
 
-        .mobile & {
-            font-size: 150%;
-        }
+    &._tools {
+        padding: 1em 0 1em 1em;
+    }
+    &._advert {
+        font-size: 150%;
+        padding: 2em 0 2em 1em;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

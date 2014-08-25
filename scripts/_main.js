@@ -1,6 +1,6 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-          Control, Decache, Include, Modal, Respond, Reveal, Stats, */
+          Control, Decache, Modal, Respond, Reveal, Stats, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Main = (function ($, G, U) { // IIFE
     'use strict';
@@ -42,66 +42,28 @@ var Main = (function ($, G, U) { // IIFE
         this.scrollTo(0, 0);
     }
 
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    /// INTERNAL
+    function genGAstrings() { // google analytics
+        var all = $('a').not('[data-stat]'); // links without data-stat
 
-    function linkVid(evt) {
-        var me, stub;
+        all.each(function () {
+            var st, me = $(this);
 
-        me = $(evt.currentTarget);
-        stub = me.data('src');
+            // take nearest header and text value of link
+            st = me.closest('article').find(':header').first().text();
+            st = st + ' > ' + (me.text() || me.attr('title') || '[OX]');
 
-        me.attr({
-            href: '//www.youtube.com/embed/' + stub + '?rel=0&html5=1',
-            target: '_blank',
+            // generate data-stat value
+            st = st.replace(/^\s|(\s){2,}|\s$/g, '$1');
+            me.attr('data-stat', st);
         });
-        return true;
-    }
 
-    function embedVid(evt) {
-        var me, stub, vid, ifr, mod, tmp;
-        evt.preventDefault();
-
-        me = $(evt.currentTarget);
-        stub = me.data('src');
-        vid = $('#Video');
-        ifr = vid.find('iframe');
-        mod = $('div#Modal');
-
-        Modal.show();
-        vid.show();
-
-        ifr.attr({
-            src: '//www.youtube.com/embed/' + stub + '?rel=0&html5=1',
-        });
-        mod.one('hide.Modal', function () {
-            ifr.attr('src', 'about:blank');
-            vid.children().hide();
-        });
-        vid.show().children().show();
-
-        // hack Sure Pay to show transcript
-        if (stub === 'j-A19zzzzq4') {
-            tmp = 'https://www.getbankingdone.com/files/WF_SurePay_DemoTranscript.pdf';
-            tmp = hackTranscript(vid, tmp);
-
-            mod.one('hide.Modal', function () {
-                tmp.remove();
-            });
+        if (U.debug(1)){
+            C.debug(name, 'makeStat', all);
         }
     }
 
-    function hackTranscript(ele, href) {
-        var wrap, link;
-        wrap = $('<aside class="modal linkMessage"></aside>');
-        link = $('<a>Transcript</a>').attr({
-            href: href,
-            target: '_blank',
-        });
-        wrap.append(link);
-        ele.append(wrap);
-        return wrap;
-    }
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /// INTERNAL
 
     function watchInputDevice() {
         var htm = $('html');
@@ -136,10 +98,6 @@ var Main = (function ($, G, U) { // IIFE
         Respond.init();
         //Stats.init();
 
-        $('.video > a').on('click touchend', function (evt) {
-            return jsView.mobile.agent() ? linkVid(evt) : embedVid(evt); // linkVid is used since mobile.agent returns for ipads
-        });
-
         $('.masthead').on('dblclick', function (evt) {
             evt.preventDefault();
             if (!W.isIE) {
@@ -161,10 +119,9 @@ var Main = (function ($, G, U) { // IIFE
         C.info('Main init @ ' + Date() + ' debug:', W.debug, self.mode);
 
         expander();
-
-        Include.init();
+        genGAstrings();
+        bind();
         $('#Top').scrollTo();
-        Include.later(bind);
     }
 
     $.extend(self, {

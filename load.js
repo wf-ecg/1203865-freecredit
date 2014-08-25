@@ -49,8 +49,8 @@ Glob = new Global('Glob');
         ],
         both: [
         G.lib + 'jq/jq-pubsub.js',
-        G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',
-        G.lib + 'jquery/mobile/custom/jquery.mobile.min.js',
+        /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
+        G.lib + 'jquery/mobile/custom/jquery.mobile.js',
         /* */
         G.loc + 'jq-help.js',
         G.loc + 'js-view.js',
@@ -76,14 +76,12 @@ Glob = new Global('Glob');
 
     Load.main = {
         both: [
-        G.src + 'carousel.js',
         G.src + 'control.js',
         G.src + 'decache.js',
-        G.src + 'include.js',
         G.src + 'modal.js',
         G.src + 'respond.js',
         G.src + 'reveal.js',
-        //G.src + 'stats.js',
+        G.src + 'stats.js',
         G.src + '_main.js',
         ],
         complete: function () {
