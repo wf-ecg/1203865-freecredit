@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     grunt.util._.extend(config, synthobj('./tasks/options/'));
 
     grunt.initConfig(config);
-    grunt.loadNpmTasks('grunt-contrib-compass');
+    // grunt.loadNpmTasks('grunt-contrib-compass');
 
     require('load-grunt-tasks')(grunt);
 };

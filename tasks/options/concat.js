@@ -1,18 +1,21 @@
 //github.com/gruntjs/grunt-contrib-concat
 module.exports = {
+    options: {
+        sourceMap: true,
+    },
     bootstrap: {
         src: [
-            './libs/bootstrap/jquery.js',
-            './libs/bootstrap/modernizr.js',
-            './libs/bootstrap/lodash.underscore.js',
-            './libs/bootstrap/console.js',
-            './libs/bootstrap/global.js',
+            'libs/bootstrap/jquery.js',
+            'libs/bootstrap/modernizr.js',
+            'libs/bootstrap/lodash.underscore.js',
+            'libs/bootstrap/console.js',
+            'libs/bootstrap/global.js',
         ],
         dest: 'app/build/boot.js',
     },
     libs: {
         src: [
-            './libs/*.js',
+            'libs/*.js',
         ],
         dest: 'app/build/lib.js',
     },

@@ -5,10 +5,9 @@ module.exports = {
             compass: true,
             require: 'animation',
             sourcemap: 'auto',
-            style: 'expanded', // cssmin will minify later
+            style: 'compact',
         },
         files: {
-            'app/build/print.css': 'scss/print.scss',
             'app/build/screen.css': 'scss/screen.scss',
         }
     }

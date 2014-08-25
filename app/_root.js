@@ -3,7 +3,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W = window,
 C = W.console;
-W.debug = Number(new Date('2014/08/22') > new Date());
+W.debug = Number(new Date('2014/08/29') > new Date());
 W.ROOT = ({
     evil: "eval('var x=0'),(typeof(x)!=='number'?'':'non-')+'strict'",
     base: 0,
@@ -66,7 +66,7 @@ W.ROOT = ({
     },
     _wrap: function (R) { // write out bootstrap element
         evil(R.base && R.D.write('<base href="' + R.base + '">'));
-        R.D.write('<script src="./build/boot.min.js"></script>');
+        R.D.write('<script src="./build/boot.js"></script>');
         delete R._wrap;
     },
     loaded: function ($) {

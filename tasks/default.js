@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
     grunt.registerTask('default',
-        ['connect', 'concat', 'jshint', 'sass', 'uglify', 'watch']
-        /* 'uglify', 'imagemin', 'sass' */
+        ['connect', 'jshint', 'concat', 'sass', 'watch']
+        /* 'imagemin', 'sass', 'uglify' */
     );
 };

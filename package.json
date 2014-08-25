@@ -1,12 +1,16 @@
 {
     "name": "1203865-freecredit",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dvdrtrgn/1203865-freecredit.git"
+    },
     "version": "0.1.0",
     "devDependencies": {
         "glob": "~3.2.8",
         "grunt": "~0.4.1",
         "grunt-autoprefixer": "~0.4.1",
         "grunt-contrib-compass": "^0.9.1",
-        "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-concat": "~0.5.0",
         "grunt-contrib-connect": "~0.5.0",
         "grunt-contrib-jshint": "~0.7.2",
         "grunt-contrib-sass": "~0.8.1",
