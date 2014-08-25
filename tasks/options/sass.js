@@ -2,10 +2,14 @@
 module.exports = {
     dist: {
         options: {
-            style: 'expanded' // cssmin will minify later
+            compass: true,
+            require: 'animation',
+            sourcemap: 'auto',
+            style: 'expanded', // cssmin will minify later
         },
         files: {
-            'app/build/all.css': 'scss/screen.scss'
+            'app/build/print.css': 'scss/print.scss',
+            'app/build/screen.css': 'scss/screen.scss',
         }
     }
 };
