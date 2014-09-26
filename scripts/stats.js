@@ -16,18 +16,18 @@ var Stats = (function ($, G, U) { // IIFE
 
     function dump(msg) {
         if (msg) {
-            C.info(name, msg);
+            C.info(name, '(dump)', [Df.key, msg]);
         }
     }
-
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    /// INTERNAL
 
     function send(msg) {
         W.ga('send', 'event', 'FCS', msg, {
             'nonInteraction': true
         });
     }
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /// INTERNAL
 
     function _update(msg) {
         (W.ga ? send : dump)(msg);
@@ -77,7 +77,7 @@ var Stats = (function ($, G, U) { // IIFE
             return Df;
         },
         init: _.once(_init),
-        update: _.throttle(_update, 1500),
+        update: _.debounce(_update, 1500),
     });
 
     return self.init();
