@@ -2,7 +2,7 @@
     "name": "1203865-freecredit",
     "repository": {
         "type": "git",
-        "url": "https://github.com/dvdrtrgn/1203865-freecredit.git"
+        "url": "https://github.com/wf-ecg/1203865-freecredit.git"
     },
     "version": "0.1.0",
     "devDependencies": {
