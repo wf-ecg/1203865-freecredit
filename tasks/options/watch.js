@@ -23,10 +23,11 @@ module.exports = {
             livereload: 7865,
         },
         files: ['app/**/*'],
-        tasks: ['sync:base'],
+        tasks: ['jshint:precat', 'sync:base'],
     },
     warn: {
         options: { reload: !false, },
         files: ['Gruntfile.js', 'tasks/**/*'],
+        tasks: ['foobar'],
     },
 };
