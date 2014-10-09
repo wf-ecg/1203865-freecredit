@@ -1,21 +1,19 @@
 /*jslint white:false */
-/*globals _, C, W, Glob:true, Util, jQuery,
-        Global, Modernizr, ROOT, */
+/*globals _, C, W, Global, jQuery,
+    Glob:true, Main, Modernizr, ROOT, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Data, Glob = new Global('Glob');
+var Data, Glob;
+
+Glob = new Global('Glob');
 
 (function ($, M, G) {
     'use strict';
-    var U;
-    W.G = G;
-    W.Tests = $.Callbacks();
     G.Load = {};
+    W.Tests = $.Callbacks();
 
     _.defaults(G, { /// all stubs terminated
-        top: ROOT.dir + '/',
         dir: ROOT.dir + '/',
         lib: ROOT.lib + '/',
-        loc: ROOT.dir + '/lib/',
         src: ROOT.dir + '/scripts/',
     });
 
@@ -40,17 +38,16 @@ var Data, Glob = new Global('Glob');
     G.Load.base = {
         test: W.isIE,
         yep: [
-        G.lib + 'ie/split.js',
+            G.lib + 'ie/split.js',
         ],
         nope: [],
         both: [
-        G.lib + 'jq/jq-pubsub.js',
-        G.lib + 'jquery/mobile/custom/jquery.mobile.min.js',
-        /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
-        'build/lib.js',
+            G.lib + 'jq/jq-pubsub.js',
+            G.lib + 'jquery/mobile/custom/jquery.mobile.min.js',
+            /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
+            'build/lib.js',
         ],
         complete: function () {
-            U = Util;
         },
     };
 
@@ -83,15 +80,13 @@ var Data, Glob = new Global('Glob');
         ],
         complete: function () {
             ROOT.loaded($);
-            evil(W.Main && W.Main.init());
+            Main.init();
         },
     };
 
     G.Load.test = {
         test: W.debug >= 1,
-        yep: [
-            //G.src + 'tests.js'
-        ],
+        //yep: ['_tests.js'],
         nope: [
         'http://www.wellsfargomedia.com/lib/js/ga-ecg.js',
         ],
@@ -100,3 +95,7 @@ var Data, Glob = new Global('Glob');
 
 }(jQuery, Modernizr, Glob));
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+Originally built by WF-ECG INTERACTIVE (Wells Fargo Enterprise Creative Group).
+        We design and develop with a focus on web standards and best practices.
+*/
