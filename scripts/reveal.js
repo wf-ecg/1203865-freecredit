@@ -55,7 +55,10 @@ var Reveal = (function ($, G, U) { // IIFE
             });
             div.children().fadeOut(Df.speed, function () {
                 div.removeClass('animate');
-                evil(div.is('.is-port') || div.hide());
+
+                if (!div.is('.is-port')) {
+                    div.hide();
+                }
             });
         }
     }
