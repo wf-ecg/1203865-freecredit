@@ -17,8 +17,8 @@ W.ROOT = ({
             sub: '/fcs',
         },
         'ecg.hosting.wellsfargo.com': {
+            lib: '//www.wellsfargomedia.com/lib',
             nom: 'mfal',
-            lib: '/mfal/lib',
             sub: '/mfal/fcstraining',
         },
         '10.89.101.100': {
