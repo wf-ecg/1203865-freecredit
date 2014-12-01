@@ -20,7 +20,7 @@
         "load-grunt-tasks": "~0.2.0"
     },
     "bases": ["app", ".", "../.."],
-    "group": "wf-ecg/1203865-freecredit/0",
+    "group": "docs/wf-ecg/1203865-freecredit/0",
     "port0": 7865,
     "port1": 8865,
     "zzzzz": 0

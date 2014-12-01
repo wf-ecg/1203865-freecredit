@@ -45,7 +45,7 @@ Glob = new Global('Glob');
             G.lib + 'jq/jq-pubsub.js',
             G.lib + 'jquery/mobile/custom/jquery.mobile.min.js',
             /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
-            'build/lib.js',
+            'build/libs.min.js',
         ],
         complete: function () {
         },
@@ -76,7 +76,7 @@ Glob = new Global('Glob');
 
     G.Load.main = {
         both: [
-            'build/src.js',
+            'build/main.js',
         ],
         complete: function () {
             ROOT.loaded($);
