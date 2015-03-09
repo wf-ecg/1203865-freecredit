@@ -22,6 +22,7 @@ var Main = (function ($, G, U) { // IIFE
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     // HELPERS (defaults dependancy only)
+    // func to contextualize content
 
     function pubsubs() {
         $.PS_sub('change', function () {
@@ -102,6 +103,7 @@ var Main = (function ($, G, U) { // IIFE
         pubsubs();
         $.PS_pub('refresh');
     }
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
