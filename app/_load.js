@@ -1,21 +1,19 @@
 /*jslint white:false */
-/*globals _, C, W, Glob:true, Util, jQuery,
-        Global, Modernizr, ROOT, */
+/*globals _, C, W, Global, jQuery,
+    Glob:true, Main, Modernizr, ROOT, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Data, Glob = new Global('Glob');
+var Data, Glob;
+
+Glob = new Global('Glob');
 
 (function ($, M, G) {
     'use strict';
-    var U;
-    W.G = G;
-    W.Tests = $.Callbacks();
     G.Load = {};
+    W.Tests = $.Callbacks();
 
     _.defaults(G, { /// all stubs terminated
-        top: ROOT.dir + '/',
         dir: ROOT.dir + '/',
         lib: ROOT.lib + '/',
-        loc: ROOT.dir + '/lib/',
         src: ROOT.dir + '/scripts/',
     });
 
@@ -40,47 +38,55 @@ var Data, Glob = new Global('Glob');
     G.Load.base = {
         test: W.isIE,
         yep: [
-        G.lib + 'ie/split.js',
+            G.lib + 'ie/split.js',
         ],
         nope: [],
         both: [
-        G.lib + 'jq/jq-pubsub.js',
-        G.lib + 'jquery/mobile/custom/jquery.mobile.min.js',
-        /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
-        'build/lib.js',
+            G.lib + 'jq/jq-pubsub.js',
+            G.lib + 'jquery/mobile/custom/jquery.mobile.min.js',
+            /*G.lib + 'jquery/mobile/custom/jquery.mobile.min.css',*/
+            'build/libs.min.js',
         ],
         complete: function () {
-            U = Util;
         },
     };
 
     G.Load.font = {
-        test: ROOT.conf.nom === 'localhost',
+        test: (ROOT.conf.nom === 'localhost' || ROOT.conf.nom === 'qla2'),
         yep: [
-        G.lib + 'fonts/archer.ssm.css',
-        G.lib + 'fonts/archer.ssm.itl.css',
+            G.lib + (!W.isIE ? 'fonts/archer.ssm.css'     : 'fonts/eot/archer.ssm.css'),
+            G.lib + (!W.isIE ? 'fonts/myriad.con.css'     : 'fonts/eot/myriad.con.css'),
+            G.lib + (!W.isIE ? 'fonts/myriad.css'         : 'fonts/eot/myriad.css'),
         ],
-        nope: [
-        /* '//cloud.typography.com/6819872/620964/css/fonts.css', Normal */
-        '//cloud.typography.com/6819872/633184/css/fonts.css', /* ScrnSmrt */
+        nope: [/*
+            '//cloud.typography.com/6819872/620964/css/fonts.css', // Normal */
+            '//cloud.typography.com/6819872/633184/css/fonts.css', // ScrnSmrt
+            '//use.typekit.net/cqz6fet.js',
         ],
+        complete: function () {
+            try {
+                if (!G.Load.font.test) {
+                    Typekit.load();
+                }
+            } catch (e) {
+                C.error('typekit');
+            }
+        },
     };
 
     G.Load.main = {
         both: [
-            'build/src.js',
+            'build/main.js',
         ],
         complete: function () {
             ROOT.loaded($);
-            evil(W.Main && W.Main.init());
+            Main.init();
         },
     };
 
     G.Load.test = {
         test: W.debug >= 1,
-        yep: [
-            //G.src + 'tests.js'
-        ],
+        //yep: ['_tests.js'],
         nope: [
         'http://www.wellsfargomedia.com/lib/js/ga-ecg.js',
         ],
@@ -89,3 +95,7 @@ var Data, Glob = new Global('Glob');
 
 }(jQuery, Modernizr, Glob));
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+Originally built by WF-ECG INTERACTIVE (Wells Fargo Enterprise Creative Group).
+        We design and develop with a focus on web standards and best practices.
+*/

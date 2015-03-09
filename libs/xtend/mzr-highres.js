@@ -44,6 +44,6 @@ function msieResizeFilter() {
                 currheight = val;
                 return currheight;
             }
-        }
+        };
     }
 }
