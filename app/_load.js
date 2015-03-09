@@ -14,7 +14,7 @@ Glob = new Global('Glob');
     _.defaults(G, { /// all stubs terminated
         dir: ROOT.dir + '/',
         lib: ROOT.lib + '/',
-        src: ROOT.dir + '/scripts/',
+        ven: ROOT.dir + '/vendor/',
     });
 
     if ($.browser.msie) {
@@ -38,7 +38,7 @@ Glob = new Global('Glob');
     G.Load.base = {
         test: W.isIE,
         yep: [
-            G.lib + 'ie/split.js',
+            G.ven + 'msie/split.js',
         ],
         nope: [],
         both: [
