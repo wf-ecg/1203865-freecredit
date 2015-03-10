@@ -1,4 +1,4 @@
-/*jslint white: false */
+/*jslint white:false, evil: true */
 /*globals _, C, W, Glob, Util, jQuery,
           Control, Decache, Respond, Reveal, Stats, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
