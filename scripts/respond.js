@@ -103,7 +103,7 @@ var Respond = (function ($, G, U) { // IIFE
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
-        if (self.inited(true)) {
+        if (self.isInited(true)) {
             return null;
         }
         _detect();

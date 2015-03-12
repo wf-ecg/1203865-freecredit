@@ -1,6 +1,6 @@
 /*jslint white:false, evil: true */
 /*globals _, C, W, Glob, Util, jQuery,
-          Control, Decache, Respond, Reveal, Stats, */
+          Control, Decache, Main:true, Respond, Reveal, Stats, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Main = (function ($, G, U) { // IIFE
     'use strict';

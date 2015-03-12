@@ -34,7 +34,7 @@ var Decache = (function ($, G, U) { // IIFE
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init(sel) {
-        if (self.inited(true)) {
+        if (self.isInited(true)) {
             return null;
         }
         if (sel) {
