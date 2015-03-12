@@ -136,7 +136,7 @@ var Reveal = (function ($, G, U) { // IIFE
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init(speed) {
-        if (self.inited(true)) {
+        if (self.isInited(true)) {
             return null;
         }
 
